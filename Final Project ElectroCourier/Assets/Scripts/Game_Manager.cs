@@ -45,7 +45,8 @@ public class Game_Manager : MonoBehaviour
 
     [Tooltip("Page index in the UIManager to go to on winning the game")]
     public int gameVictoryPageIndex = 0;
-
+    [Tooltip("The victory effect to create when the player won")]
+    public GameObject victoryEffect;
     private void Awake()
     {
         // When this component is first added or activated, setup the global reference
@@ -101,7 +102,7 @@ public class Game_Manager : MonoBehaviour
     public void LevelCleared()
     {
         PlayerPrefs.SetInt("score", score);
-      
+        Instantiate(victoryEffect);
         if (uiManager != null)
         {
             player.SetActive(false);
@@ -120,9 +121,8 @@ public class Game_Manager : MonoBehaviour
     [HideInInspector]
     public bool gameIsOver = false;
 
-
+    
     // Displays game over screen
-
     public void GameOver()
     {
         gameIsOver = true;
@@ -141,14 +141,15 @@ public class Game_Manager : MonoBehaviour
     public float currentHealth = 1f;
     public GameObject healthBar;
 
-    public void setUpHealthBar()
+    public void ChangeHealthBar()
     {
         //indicate the player's health
         healthBar.GetComponent<UnityEngine.UI.Image>().fillAmount = currentHealth;
-        if (currentHealth == 0)
+        if (currentHealth <= 0)
         {
-            uiManager.GoToPage(gameOverPageIndex);
+            GameOver();
         }
+        UpdateUIElements();
     }
 
     // Adds a number to the player's score stored in the gameManager

@@ -13,12 +13,18 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("References:")]
     public Rigidbody2D rb;
-    
+
+
+
     bool canJump;
 
     // Start is called before the first frame update
     void Start()
     {
+        if (rb == null)
+        {
+            rb = GetComponent<Rigidbody2D>();
+        }
         
     }
 
@@ -43,4 +49,5 @@ public class PlayerMovement : MonoBehaviour
     {
         rb.AddForce(new Vector2(0, JUMP_SPEED), ForceMode2D.Impulse);
     }
+    
 }

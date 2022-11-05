@@ -48,8 +48,9 @@ MonoBehaviour:
   player: {fileID: 0}
   gameManagerScore: 0
   highScore: 0
-  gameVictoryPageIndex: 0
-  gameOverPageIndex: 0
+  gameVictoryPageIndex: 3
+  victoryEffect: {fileID: 6501860701623129718, guid: 349e93b29c03f7d4f9c554aa91f9504a, type: 3}
+  gameOverPageIndex: 2
   gameOverEffect: {fileID: 5496031679063598027, guid: cab6c555d3a1d7f41b38691fa864ff7a, type: 3}
   gameIsOver: 0
   currentHealth: 1

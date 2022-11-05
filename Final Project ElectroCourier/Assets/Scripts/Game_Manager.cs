@@ -24,10 +24,10 @@ public class Game_Manager : MonoBehaviour
 
     [Header("Scores")]
     [Tooltip("The player's score")]
-    [SerializeField] public int gameManagerScore = 0;
+    [SerializeField] public float gameManagerScore = 0;
 
     // Static getter/setter for player score (for convenience)
-    public static int score
+    public static float score
     {
         get
         {
@@ -40,7 +40,7 @@ public class Game_Manager : MonoBehaviour
     }
 
     [Tooltip("The highest score acheived on this device")]
-    public int highScore = 0;
+    public float highScore = 0;
 
 
     [Tooltip("Page index in the UIManager to go to on winning the game")]
@@ -66,11 +66,11 @@ public class Game_Manager : MonoBehaviour
         // Less urgent startup behaviors, like loading highscores
         if (PlayerPrefs.HasKey("highscore"))
         {
-            highScore = PlayerPrefs.GetInt("highscore");
+            highScore = PlayerPrefs.GetFloat("highscore");
         }
         if (PlayerPrefs.HasKey("score"))
         {
-            score = PlayerPrefs.GetInt("score");
+            score = PlayerPrefs.GetFloat("score");
         }
 
     }
@@ -101,7 +101,7 @@ public class Game_Manager : MonoBehaviour
     // Ends the level, meant to be called when the level is complete (End of level reached)
     public void LevelCleared()
     {
-        PlayerPrefs.SetInt("score", score);
+        PlayerPrefs.SetFloat("score", score);
         Instantiate(victoryEffect);
         if (uiManager != null)
         {
@@ -183,7 +183,7 @@ public class Game_Manager : MonoBehaviour
         ScoreDisplay.score = 0;
 
         PlayerPrefs.SetInt("highscore", 0);
-        ScoreDisplay.initialhighscore = 0;
+        ScoreDisplay.highscore = 0;
 
     }
 
@@ -193,7 +193,7 @@ public class Game_Manager : MonoBehaviour
     {
         if (score > instance.highScore)
         {
-            PlayerPrefs.SetInt("highscore", score);
+            PlayerPrefs.SetFloat("highscore", score);
             instance.highScore = score;
         }
         UpdateUIElements();

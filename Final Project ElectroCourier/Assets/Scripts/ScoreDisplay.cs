@@ -6,34 +6,32 @@ using TMPro;
 
 public class ScoreDisplay : MonoBehaviour
 {
-    public static int score;
-    public static int initialhighscore;
-    private static int highscore;
+    public static float score;
+    public static float highscore;
     public TMP_Text scoreText;
     public TMP_Text highScoreText;
-    // Start is called before the first frame update
+
     void Start()
     {
         score = 0;
-        initialhighscore = PlayerPrefs.GetInt("highscore", initialhighscore);
-        highscore = initialhighscore;
-        highScoreText.text = "High Score: " + initialhighscore.ToString();
+        highscore = PlayerPrefs.GetFloat("highscore", highscore);
+        highScoreText.text = "High Score: " + highscore.ToString();
     }
 
-    // Update is called once per frame
     void Update()
     {
+        score += 0.5f;
         if (score > highscore)
         {
             highscore = score;
-            highScoreText.text = "High Score: " + highscore.ToString();
-            PlayerPrefs.SetInt("highscore", highscore);
-            scoreText.text = "Score: " + score.ToString();
+            highScoreText.text = string.Format("High Score: {0:000}", highscore);
+            PlayerPrefs.SetFloat("highscore", highscore);
+            scoreText.text = string.Format("Score: {0:000}", score);
 
         }
         else
         {
-            scoreText.text = "Score: " + score.ToString();
+            scoreText.text = string.Format("Score: {0:000}", score);
         }
     }
     public static void Reset()
@@ -44,7 +42,7 @@ public class ScoreDisplay : MonoBehaviour
     public void SaveHighScore()
     {
 
-        PlayerPrefs.SetInt("highscore", highscore);
+        PlayerPrefs.SetFloat("highscore", highscore);
         PlayerPrefs.Save();
 
     }

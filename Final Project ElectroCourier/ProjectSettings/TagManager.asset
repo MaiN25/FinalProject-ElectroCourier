@@ -6,11 +6,13 @@ TagManager:
   tags:
   - Ground
   - Pickup
+  - Rain
+  - Safezone
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Ignore Rain
   - Water
   - UI
   - 

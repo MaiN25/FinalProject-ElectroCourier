@@ -36,10 +36,10 @@ public class RainDetection : MonoBehaviour
             Debug.Log("Safe!");
         } else if (inRain && !inSafe)
         {
-            Debug.Log("Rain...");
+            //Debug.Log("Rain...");
         } else if (!inRain && !inSafe)
         {
-            Debug.Log("Outside of Rain");
+            //Debug.Log("Outside of Rain");
         }
     }
 }

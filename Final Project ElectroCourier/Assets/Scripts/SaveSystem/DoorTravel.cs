@@ -9,8 +9,8 @@ public class DoorTravel : MonoBehaviour
     public static string targetDoor;
     public string targetScene;
     public static SaveLoadData sld;
-    public int xOffset = 0;
-    public int yOffset = 0;
+    public float xOffset = 0;
+    public float yOffset = 0;
 
     private void Start()
     {

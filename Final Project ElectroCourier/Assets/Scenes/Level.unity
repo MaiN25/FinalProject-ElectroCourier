@@ -2354,6 +2354,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a560c246864f5d0488967addb771d0d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  packages: 0
   isCanvasText: 1
   packageText: {fileID: 1555735014}
 --- !u!1 &2050431675

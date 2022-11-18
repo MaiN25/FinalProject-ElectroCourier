@@ -138,7 +138,7 @@ public class Game_Manager : MonoBehaviour
     }
 
     [Header("Health")]
-    public float currentHealth = 1f;
+    public static float currentHealth = 1f;
     public GameObject healthBar;
 
     public void ChangeHealthBar()

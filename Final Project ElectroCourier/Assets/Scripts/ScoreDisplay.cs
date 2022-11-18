@@ -13,7 +13,6 @@ public class ScoreDisplay : MonoBehaviour
 
     void Start()
     {
-        score = 0;
         highscore = PlayerPrefs.GetFloat("highscore", highscore);
         highScoreText.text = "High Score: " + highscore.ToString();
     }

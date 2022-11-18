@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2568939397638879788}
   - component: {fileID: 2568939397638879791}
+  - component: {fileID: 5302358786636328512}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -53,5 +54,16 @@ MonoBehaviour:
   gameOverPageIndex: 2
   gameOverEffect: {fileID: 5496031679063598027, guid: cab6c555d3a1d7f41b38691fa864ff7a, type: 3}
   gameIsOver: 0
-  currentHealth: 1
   healthBar: {fileID: 0}
+--- !u!114 &5302358786636328512
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2568939397638879790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a528836ef42d954d987f061dfa82391, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -5,7 +5,7 @@ using TMPro;
 
 public class ItemCollection : MonoBehaviour
 {
-    int packages = 0;
+    public int packages = 0;
     public bool isCanvasText = false;
     public TextMeshProUGUI packageText;
 
@@ -22,11 +22,19 @@ public class ItemCollection : MonoBehaviour
         {
             Destroy(collision.gameObject);
             packages++;
-            if (isCanvasText)
-            {
-                packageText.text = "Packages : " + packages;
-            }
+            UpdatePackageUI();
         }
     }
+    public void LogPackages()
+    {
+        Debug.Log("Package number: " + packages);
+    }
 
+    public void UpdatePackageUI()
+    {
+        if (isCanvasText)
+        {
+            packageText.text = "Packages : " + packages;
+        }
+    }
 }

@@ -128,20 +128,16 @@ public class SaveLoadData : MonoBehaviour
         public float health;
         public float score;
     }
-
-    // Debugging keys: Right Ctrl saves the game, Right Alt Loads a previous save point within a current room (it's kind of like time travel but only for yourself)
-    private void Update()
+    public void CheckpointSave()
     {
-        if (Input.GetKeyDown(KeyCode.RightControl))
-        {
             SaveGame();
-        }
-        else if (Input.GetKeyDown(KeyCode.RightAlt))
-        {
+    }
+
+    public void Respawn() {
             LoadSave();
             SetPlayerFromSave(true);
-        }
     }
+    
 
     // The player objects are found so saving and loading functions don't fail if you move through rooms
     public void UpdateUsedObjects(PlayerComponentFinder playerCF)

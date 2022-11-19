@@ -749,7 +749,7 @@ GameObject:
   - component: {fileID: 1072834300}
   - component: {fileID: 1072834299}
   - component: {fileID: 1072834301}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -855,7 +855,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 1970852759453617634}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bcc902600fa0278468e08d327e5b2cdb, type: 3}
   m_Name: 
@@ -1851,6 +1851,10 @@ PrefabInstance:
       propertyPath: startPos
       value: 
       objectReference: {fileID: 809914412}
+    - target: {fileID: 1970852760442530304, guid: 60d97274811fe184caf4d5ed7dceb857, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1970852760442530305, guid: 60d97274811fe184caf4d5ed7dceb857, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -1898,6 +1902,14 @@ PrefabInstance:
     - target: {fileID: 1970852760442530307, guid: 60d97274811fe184caf4d5ed7dceb857, type: 3}
       propertyPath: m_Name
       value: Rain
+      objectReference: {fileID: 0}
+    - target: {fileID: 1970852760502650344, guid: 60d97274811fe184caf4d5ed7dceb857, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1970852760502809678, guid: 60d97274811fe184caf4d5ed7dceb857, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 46.2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 60d97274811fe184caf4d5ed7dceb857, type: 3}

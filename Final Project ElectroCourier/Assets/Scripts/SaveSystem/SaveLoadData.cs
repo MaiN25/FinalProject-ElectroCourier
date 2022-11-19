@@ -130,12 +130,14 @@ public class SaveLoadData : MonoBehaviour
     }
     public void CheckpointSave()
     {
-            SaveGame();
+        Debug.Log("Saving Game!");
+        SaveGame();
     }
 
-    public void Respawn() {
-            LoadSave();
-            SetPlayerFromSave(true);
+    public void Respawn()
+    {
+        LoadSave();
+        SetPlayerFromSave(true);
     }
     
 
@@ -146,11 +148,5 @@ public class SaveLoadData : MonoBehaviour
         pcf = playerCF;
         ic = player.GetComponent<ItemCollection>();
         Debug.Log("Player: " + player.name + ", Component: " + pcf + ", ItemCollection: " + ic + ", Movement: " + pcf.pm);
-    }
-    //Loads a level according to the name provided
-    public void LoadLevelByName(string levelToLoadName)
-    {
-        SceneManager.LoadScene(levelToLoadName);
-        Game_Manager.ResetGamePlayerPrefs();
     }
 }

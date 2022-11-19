@@ -37,7 +37,6 @@ public class DoorTravel : MonoBehaviour
     public void ChangeScene(Vector2 playerPos)
     {
         targetDoor = SceneManager.GetActiveScene().name;
-        sld.SaveGame();
         SceneManager.LoadScene(targetScene);
     }
 }

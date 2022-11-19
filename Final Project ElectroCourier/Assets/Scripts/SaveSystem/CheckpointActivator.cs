@@ -10,6 +10,7 @@ public class CheckpointActivator : MonoBehaviour
     void Start()
     {
         sld = GameObject.FindObjectOfType<SaveLoadData>();
+        sr = this.gameObject.GetComponent<SpriteRenderer>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -18,9 +19,9 @@ public class CheckpointActivator : MonoBehaviour
         StartCoroutine("SaveEffect");
     }
 
-    private IEnumerable SaveEffect()
+    private IEnumerator SaveEffect()
     {
-        sr.color = Color.blue;
+        sr.color = Color.cyan;
         yield return new WaitForSeconds(0.25f);
         sr.color = Color.white;
         StopCoroutine("SaveEffect");

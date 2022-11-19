@@ -22,9 +22,4 @@ public class QuitGameButton : MonoBehaviour
 #endif
         Game_Manager.ResetGamePlayerPrefs();
     }
-
-    private void OnApplicationQuit()
-    {
-        sld.SaveGame();
-    }
 }

@@ -31341,6 +31341,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1237758324, guid: f663a883da56d344ca9181d924470af2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3865202985901192242, guid: f663a883da56d344ca9181d924470af2, type: 3}
       propertyPath: m_Name
       value: Level Canvas
@@ -31660,14 +31664,6 @@ PrefabInstance:
       propertyPath: packageText
       value: 
       objectReference: {fileID: 1296697586}
-    - target: {fileID: 7777820458540167953, guid: c746619bfcbbfb347825c71bc2084f5b, type: 3}
-      propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 5.04
-      objectReference: {fileID: 0}
-    - target: {fileID: 7777820458540167953, guid: c746619bfcbbfb347825c71bc2084f5b, type: 3}
-      propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 4.56
-      objectReference: {fileID: 0}
     - target: {fileID: 7777820458540167959, guid: c746619bfcbbfb347825c71bc2084f5b, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -31678,7 +31674,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7777820458540167959, guid: c746619bfcbbfb347825c71bc2084f5b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.18
+      value: -4.1
       objectReference: {fileID: 0}
     - target: {fileID: 7777820458540167959, guid: c746619bfcbbfb347825c71bc2084f5b, type: 3}
       propertyPath: m_LocalPosition.z

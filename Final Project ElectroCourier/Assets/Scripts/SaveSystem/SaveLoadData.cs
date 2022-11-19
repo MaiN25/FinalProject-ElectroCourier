@@ -42,7 +42,7 @@ public class SaveLoadData : MonoBehaviour
         {
             packages = 0,
             room = DefaultLevel,
-            playerPosition = new float[] { -13.03f, -4.18f, 0 },
+            playerPosition = new float[] { -13.03f, -4.1f, 0 },
             health = 1,
             score = 0
         };

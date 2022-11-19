@@ -102,10 +102,10 @@ public class Game_Manager : MonoBehaviour
     public void LevelCleared()
     {
         PlayerPrefs.SetFloat("score", score);
-        Instantiate(victoryEffect);
+        Instantiate(victoryEffect, player.transform);
         if (uiManager != null)
         {
-            player.SetActive(false);
+            Time.timeScale = 0;
             uiManager.allowPause = false;
             uiManager.GoToPage(gameVictoryPageIndex);
         }

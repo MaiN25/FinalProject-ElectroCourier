@@ -28,7 +28,7 @@ public class EnemyController : MonoBehaviour
     {
         if (head.IsTouchingLayers(player))
         {
-            gameManager.LevelCleared();
+            //gameManager.LevelCleared();
             gameObject.SetActive(false);
         }
     }

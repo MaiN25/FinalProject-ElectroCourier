@@ -12,6 +12,7 @@ public class SaveLoadData : MonoBehaviour
     public GameObject player;
     public ItemCollection ic;
     public PlayerComponentFinder pcf;
+    string DefaultLevel = "Level1";
 
     // The currently selected saveslot, allows for saving and loading to the same file
     int saveSlot = 1;
@@ -36,12 +37,12 @@ public class SaveLoadData : MonoBehaviour
     public void NewGame(int saveNum)
     {
         saveSlot = saveNum;
-        SceneManager.LoadScene("Level");
+        SceneManager.LoadScene(DefaultLevel);
         playerSave = new PlayerSave
         {
             packages = 0,
-            room = "Level",
-            playerPosition = new float[] { -0.08f, -2.66f, 0 },
+            room = DefaultLevel,
+            playerPosition = new float[] { -13.03f, -4.18f, 0 },
             health = 1,
             score = 0
         };

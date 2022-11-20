@@ -12,7 +12,8 @@ public class SaveLoadData : MonoBehaviour
     public GameObject player;
     public ItemCollection ic;
     public PlayerComponentFinder pcf;
-    string DefaultLevel = "Level1";
+    string DefaultLevel = "FinLevel1";
+    string TestLevel = "Level";
 
     // The currently selected saveslot, allows for saving and loading to the same file
     int saveSlot = 1;

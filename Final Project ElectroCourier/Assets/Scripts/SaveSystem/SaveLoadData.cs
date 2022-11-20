@@ -12,6 +12,7 @@ public class SaveLoadData : MonoBehaviour
     public GameObject player;
     public ItemCollection ic;
     public PlayerComponentFinder pcf;
+    public static float[] tempSaves;
     string DefaultLevel = "FinLevel1";
     string TestLevel = "Level";
 
@@ -47,6 +48,7 @@ public class SaveLoadData : MonoBehaviour
             health = 1,
             score = 0
         };
+        tempSaves = new float[] { -999, -999, -999 };
         string jsonSave = JsonUtility.ToJson(playerSave);
         Debug.Log("Overriding Save " + saveSlot);
         File.WriteAllText(Application.persistentDataPath + "/SaveData_SaveSlot" + saveSlot + ".json", jsonSave);
@@ -107,18 +109,26 @@ public class SaveLoadData : MonoBehaviour
             Debug.Log("Player Save Null");
             LoadSave();
         }
-        ic.packages = playerSave.packages;
-        ic.UpdatePackageUI();
-        ic.LogPackages();
-
+        if (tempSaves[0] == -999)
+        {
+            Debug.Log("No Temp Save!");
+            Game_Manager.instance.currentHealth = playerSave.health;
+            ic.packages = playerSave.packages;
+            ScoreDisplay.score = playerSave.score;
+        } else
+        {
+            Game_Manager.instance.currentHealth = tempSaves[0];
+            ic.packages = Mathf.RoundToInt(tempSaves[1]);
+            ScoreDisplay.score = tempSaves[2];
+        }
         if (isFullReset)
         {
             player.transform.position = new Vector3(playerSave.playerPosition[0], playerSave.playerPosition[1], playerSave.playerPosition[2]);
         }
         pcf.pm.rb.velocity = new Vector2(0, 0);
-        Game_Manager.instance.currentHealth = playerSave.health;
+        //Update UI to match changes
         pcf.gm.ChangeHealthBar();
-        ScoreDisplay.score = playerSave.score;
+        ic.UpdatePackageUI();
     }
 
     // The player's save data is stored within a special class object
@@ -135,6 +145,13 @@ public class SaveLoadData : MonoBehaviour
         Debug.Log("Saving Game!");
         SaveGame();
     }
+    public void TempSave()
+    {
+        // Health, Packages, Score
+        tempSaves = new float[] {Game_Manager.instance.currentHealth, ic.packages, ScoreDisplay.score};
+        Debug.Log("Saving Temp: " + tempSaves[0] + ", " + tempSaves[1] + ", " + tempSaves[2]);
+    }
+
 
     public void Respawn()
     {

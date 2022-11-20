@@ -234,7 +234,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MOVEMENT_SPEED: 10
-  JUMP_SPEED: 9
+  JUMP_SPEED: 8.5
   rb: {fileID: 7777820458540167954}
   inputManager: {fileID: 0}
   spriteRenderer: {fileID: 7777820458540167952}

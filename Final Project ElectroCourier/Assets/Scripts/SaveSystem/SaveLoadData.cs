@@ -80,7 +80,7 @@ public class SaveLoadData : MonoBehaviour
             packages = ic.packages,
             room = SceneManager.GetActiveScene().name,
             playerPosition = new float[] { playerPos.x, playerPos.y, playerPos.z },
-            health = Game_Manager.currentHealth,
+            health = Game_Manager.instance.currentHealth,
             score = ScoreDisplay.score
         };
         string jsonSave = JsonUtility.ToJson(playerSave);
@@ -116,7 +116,7 @@ public class SaveLoadData : MonoBehaviour
             player.transform.position = new Vector3(playerSave.playerPosition[0], playerSave.playerPosition[1], playerSave.playerPosition[2]);
         }
         pcf.pm.rb.velocity = new Vector2(0, 0);
-        Game_Manager.currentHealth = playerSave.health;
+        Game_Manager.instance.currentHealth = playerSave.health;
         pcf.gm.ChangeHealthBar();
         ScoreDisplay.score = playerSave.score;
     }

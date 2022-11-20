@@ -132,13 +132,14 @@ public class Game_Manager : MonoBehaviour
         }
         if (uiManager != null)
         {
+            Time.timeScale = 0;
             uiManager.allowPause = false;
             uiManager.GoToPage(gameOverPageIndex);
         }
     }
 
     [Header("Health")]
-    public static float currentHealth = 1f;
+    public float currentHealth = 1f;
     public GameObject healthBar;
 
     public void ChangeHealthBar()

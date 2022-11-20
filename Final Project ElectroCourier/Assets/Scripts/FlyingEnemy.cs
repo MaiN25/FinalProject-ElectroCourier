@@ -13,10 +13,13 @@ public class FlyingEnemy : MonoBehaviour
 
     public bool canChase = false;
     public Transform startingPosition;
+    private Game_Manager gameManager;
 
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+        gameManager = GameObject.Find("GameManager").GetComponent<Game_Manager>();
+
     }
 
     // Update is called once per frame
@@ -25,6 +28,10 @@ public class FlyingEnemy : MonoBehaviour
         if(player == null)
         {
             Debug.LogError("Can't find the player in the scene");
+        }
+        if (gameManager == null)
+        {
+            Debug.LogError("Can't find the Game Manager in the scene");
         }
         //if chasing is permitted, chase the player
         //else go back to the starting position
@@ -57,6 +64,15 @@ public class FlyingEnemy : MonoBehaviour
     {
         transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
     }
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.tag == "Player")
+        {
+            gameManager.currentHealth -= 0.2f;
+            gameManager.ChangeHealthBar();
+        }
+
+    }
     void Flip()
     {
         if (transform.position.x > player.transform.position.x)
@@ -68,4 +84,5 @@ public class FlyingEnemy : MonoBehaviour
             transform.rotation = Quaternion.Euler(0, 180, 0);
         }
     }
+    
 }

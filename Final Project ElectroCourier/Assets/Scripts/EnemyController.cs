@@ -46,7 +46,7 @@ public class EnemyController : MonoBehaviour
         }
         if(other.gameObject.tag == "Player")
         {
-            Game_Manager.currentHealth -= 0.2f;
+            gameManager.currentHealth -= 0.2f;
             gameManager.ChangeHealthBar();
         }
             

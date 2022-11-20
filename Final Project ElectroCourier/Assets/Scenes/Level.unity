@@ -1223,6 +1223,18 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5357944363547519271, guid: 71744a0a5d2fa944ab1bd77cc109ffc3, type: 3}
+      propertyPath: ic
+      value: 
+      objectReference: {fileID: 1981218994}
+    - target: {fileID: 5357944363547519271, guid: 71744a0a5d2fa944ab1bd77cc109ffc3, type: 3}
+      propertyPath: pcf
+      value: 
+      objectReference: {fileID: 1981218995}
+    - target: {fileID: 5357944363547519271, guid: 71744a0a5d2fa944ab1bd77cc109ffc3, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1981218993}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 71744a0a5d2fa944ab1bd77cc109ffc3, type: 3}
 --- !u!1 &842785614
@@ -2736,6 +2748,28 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7777820458540167964, guid: c746619bfcbbfb347825c71bc2084f5b, type: 3}
   m_PrefabInstance: {fileID: 1852369886}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1981218994 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6765080156112202401, guid: c746619bfcbbfb347825c71bc2084f5b, type: 3}
+  m_PrefabInstance: {fileID: 1852369886}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1981218993}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a560c246864f5d0488967addb771d0d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1981218995 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9040290500360670609, guid: c746619bfcbbfb347825c71bc2084f5b, type: 3}
+  m_PrefabInstance: {fileID: 1852369886}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1981218993}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eaebe4010ca023e479bb698167404a3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2050431675
 GameObject:
   m_ObjectHideFlags: 0
@@ -3241,6 +3275,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3865202985901192246, guid: f663a883da56d344ca9181d924470af2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3865202985922314869, guid: f663a883da56d344ca9181d924470af2, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

@@ -13,11 +13,54 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("References:")]
     public Rigidbody2D rb;
+    public InputManager inputManager = null;
 
+
+    [Tooltip("The sprite renderer that represents the player.")]
+    public SpriteRenderer spriteRenderer = null;
 
 
     bool canJump;
+    #region Input from Input Manager
+    // The horizontal movement input collected from the input manager
+    public float horizontalMovementInput
+    {
+        get
+        {
+            if (inputManager != null)
+                return inputManager.horizontalMovement;
+            else
+                return 0;
+        }
+    }
+    #endregion
+    public enum PlayerDirection
+    {
+        Right,
+        Left
+    }
 
+    // Which way the player is facing right now
+    public PlayerDirection facing
+    {
+        get
+        {
+            if (horizontalMovementInput > 0)
+            {
+                return PlayerDirection.Right;
+            }
+            else if (horizontalMovementInput < 0)
+            {
+                return PlayerDirection.Left;
+            }
+            else
+            {
+                if (spriteRenderer != null && spriteRenderer.flipX == true)
+                    return PlayerDirection.Left;
+                return PlayerDirection.Right;
+            }
+        }
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -25,15 +68,20 @@ public class PlayerMovement : MonoBehaviour
         {
             rb = GetComponent<Rigidbody2D>();
         }
-        
+        if(inputManager == null)
+        {
+            inputManager = GameObject.Find("InputManager").GetComponent<InputManager>();
+
+        }
+
     }
 
     // Update is called once per frame
     void Update()
     {
         Move();
-
-        if(Input.GetKeyDown(KeyCode.Space))
+        HandleSpriteDirection();
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             Jump();
         }
@@ -49,5 +97,18 @@ public class PlayerMovement : MonoBehaviour
     {
         rb.AddForce(new Vector2(0, JUMP_SPEED), ForceMode2D.Impulse);
     }
-    
+    private void HandleSpriteDirection()
+    {
+        if (spriteRenderer != null)
+        {
+            if (facing == PlayerDirection.Left)
+            {
+                spriteRenderer.flipX = true;
+            }
+            else
+            {
+                spriteRenderer.flipX = false;
+            }
+        }
+    }
 }

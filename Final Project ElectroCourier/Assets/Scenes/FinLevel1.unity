@@ -31664,6 +31664,10 @@ PrefabInstance:
       propertyPath: packageText
       value: 
       objectReference: {fileID: 1296697586}
+    - target: {fileID: 7777820458540167955, guid: c746619bfcbbfb347825c71bc2084f5b, type: 3}
+      propertyPath: inputManager
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 7777820458540167959, guid: c746619bfcbbfb347825c71bc2084f5b, type: 3}
       propertyPath: m_RootOrder
       value: 5

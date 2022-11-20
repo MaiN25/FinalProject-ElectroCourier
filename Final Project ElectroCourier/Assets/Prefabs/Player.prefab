@@ -234,7 +234,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MOVEMENT_SPEED: 10
-  JUMP_SPEED: 9
+  JUMP_SPEED: 8.5
   rb: {fileID: 7777820458540167954}
 --- !u!114 &9040290500360670609
 MonoBehaviour:

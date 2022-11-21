@@ -25540,14 +25540,6 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4246765540601322788, guid: a0cb451d4b583b646a82f8d330c7fb79, type: 3}
-      propertyPath: xOffset
-      value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4246765540601322788, guid: a0cb451d4b583b646a82f8d330c7fb79, type: 3}
-      propertyPath: yOffset
-      value: -0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 4246765540601322788, guid: a0cb451d4b583b646a82f8d330c7fb79, type: 3}
       propertyPath: targetScene
       value: FinLevel3
       objectReference: {fileID: 0}

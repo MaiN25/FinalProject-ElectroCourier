@@ -14270,6 +14270,6 @@ MonoBehaviour:
   RainWidthMultiplier: 1.5
   CollisionMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 999
   CollisionLifeTimeRain: 0.02
   RainMistCollisionMultiplier: 0.75

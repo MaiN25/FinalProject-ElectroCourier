@@ -33,7 +33,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -3547,10 +3547,10 @@ TextureImporter:
       Background Props_154: -1303382819
       Background Props_105: 1284210562
       Background Props_42: 495931915
-      Background Props_12: -1960630416
       Background Props_52: 2035705801
       Background Props_128: -1262758914
       Background Props_151: 1540776297
+      Background Props_12: -1960630416
       Background Props_64: 2079774568
       Background Props_47: -726292679
       Background Props_23: 1010330910

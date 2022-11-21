@@ -31341,10 +31341,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1237758324, guid: f663a883da56d344ca9181d924470af2, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3865202985901192242, guid: f663a883da56d344ca9181d924470af2, type: 3}
       propertyPath: m_Name
       value: Level Canvas

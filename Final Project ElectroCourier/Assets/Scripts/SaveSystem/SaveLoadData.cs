@@ -60,6 +60,7 @@ public class SaveLoadData : MonoBehaviour
     public void StartLoad(int saveNum)
     {
         saveSlot = saveNum;
+        tempSaves = new float[] { -999, -999, -999 };
         LoadSave();
         SceneManager.LoadScene(playerSave.room);
         UpdateUsedObjects(GameObject.FindObjectOfType<PlayerComponentFinder>());

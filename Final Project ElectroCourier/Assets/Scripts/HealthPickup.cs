@@ -14,11 +14,16 @@ public class HealthPickup : MonoBehaviour
     }
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
+        if (collision.CompareTag("Player") && gameManager.currentHealth < 1)
         {
             gameManager.currentHealth += addHealth;
             gameManager.ChangeHealthBar();
             healthPickUp.SetActive(false);
         }
+        else
+        {
+            Debug.Log("Your health is full!");
+        }
+        
     }
 }

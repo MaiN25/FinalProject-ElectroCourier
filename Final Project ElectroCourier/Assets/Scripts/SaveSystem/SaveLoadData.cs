@@ -24,7 +24,6 @@ public class SaveLoadData : MonoBehaviour
     private void Awake()
     {
         DontDestroyOnLoad(this.gameObject);
-        /*
         if (instance == null)
         {
             instance = this;
@@ -33,7 +32,6 @@ public class SaveLoadData : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
-        */
     }
 
     // When the user chooses to play a new game and picks a saveslot to override, the saveslot is updated to match the one chosen by the user, the first level is loaded,

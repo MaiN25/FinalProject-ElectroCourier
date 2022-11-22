@@ -25119,11 +25119,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7777820458540167959, guid: c746619bfcbbfb347825c71bc2084f5b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 13.76
+      value: -11.16
       objectReference: {fileID: 0}
     - target: {fileID: 7777820458540167959, guid: c746619bfcbbfb347825c71bc2084f5b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 9.12
+      value: 5.16
       objectReference: {fileID: 0}
     - target: {fileID: 7777820458540167959, guid: c746619bfcbbfb347825c71bc2084f5b, type: 3}
       propertyPath: m_LocalPosition.z
@@ -25396,7 +25396,7 @@ GameObject:
   m_Component:
   - component: {fileID: 621292088}
   - component: {fileID: 621292089}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Barrier (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26228,7 +26228,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1872547912}
   - component: {fileID: 1872547913}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Barrier
   m_TagString: Untagged
   m_Icon: {fileID: 0}

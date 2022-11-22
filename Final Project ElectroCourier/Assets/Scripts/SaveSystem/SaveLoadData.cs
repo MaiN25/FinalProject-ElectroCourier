@@ -24,6 +24,7 @@ public class SaveLoadData : MonoBehaviour
     private void Awake()
     {
         DontDestroyOnLoad(this.gameObject);
+        /*
         if (instance == null)
         {
             instance = this;
@@ -32,6 +33,7 @@ public class SaveLoadData : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
+        */
     }
 
     // When the user chooses to play a new game and picks a saveslot to override, the saveslot is updated to match the one chosen by the user, the first level is loaded,
@@ -62,6 +64,7 @@ public class SaveLoadData : MonoBehaviour
         saveSlot = saveNum;
         tempSaves = new float[] { -999, -999, -999 };
         LoadSave();
+        Debug.Log(playerSave.room + " " + playerSave.room.GetType());
         SceneManager.LoadScene(playerSave.room);
         UpdateUsedObjects(GameObject.FindObjectOfType<PlayerComponentFinder>());
         SetPlayerFromSave(true);

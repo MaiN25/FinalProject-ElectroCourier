@@ -12,6 +12,7 @@ public class FlyingEnemy : MonoBehaviour
     public Collider2D head;
 
     public bool canChase = false;
+    public bool causedDamage = false;
     public Transform startingPosition;
     private Game_Manager gameManager;
 
@@ -35,7 +36,7 @@ public class FlyingEnemy : MonoBehaviour
         }
         //if chasing is permitted, chase the player
         //else go back to the starting position
-        if (canChase)
+        if (canChase && causedDamage == false)
         {
             //if chasing is permitted, chase the player
             Chase();
@@ -46,17 +47,16 @@ public class FlyingEnemy : MonoBehaviour
         }
         Flip();
     }
-
+  
     private void ReturnToStartingPosition()
     {
-        transform.position = Vector2.MoveTowards(transform.position, startingPosition.position, speed * Time.deltaTime);
+            transform.position = Vector2.MoveTowards(transform.position, startingPosition.position, speed * Time.deltaTime);     
     }
 
     void FixedUpdate()
     {
         if (head.IsTouchingLayers(playerLayer))
         {
-            //gameManager.LevelCleared();
             gameObject.SetActive(false);
             ScoreDisplay.score += 1000;
         }
@@ -71,6 +71,7 @@ public class FlyingEnemy : MonoBehaviour
         {
             gameManager.currentHealth -= 0.2f;
             gameManager.ChangeHealthBar();
+            transform.position = startingPosition.position;
         }
 
     }

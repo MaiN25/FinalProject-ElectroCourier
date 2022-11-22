@@ -4149,6 +4149,10 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 6242280885870054464, guid: 38d4062db1dced84badd3e9e042af70a, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 6242280885870054471, guid: 38d4062db1dced84badd3e9e042af70a, type: 3}
       propertyPath: m_Size.x
       value: 68
@@ -27645,6 +27649,10 @@ PrefabInstance:
       propertyPath: m_Tiles.Array.data[115].second.m_TileObjectToInstantiateIndex
       value: 65535
       objectReference: {fileID: 0}
+    - target: {fileID: 6242280887449035312, guid: 38d4062db1dced84badd3e9e042af70a, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 6242280887449035317, guid: 38d4062db1dced84badd3e9e042af70a, type: 3}
       propertyPath: m_Size.x
       value: 45
@@ -32395,6 +32403,34 @@ PrefabInstance:
       propertyPath: packageText
       value: 
       objectReference: {fileID: 1296697586}
+    - target: {fileID: 6931214671698101382, guid: c746619bfcbbfb347825c71bc2084f5b, type: 3}
+      propertyPath: m_Size.x
+      value: 0.40144634
+      objectReference: {fileID: 0}
+    - target: {fileID: 6931214671698101382, guid: c746619bfcbbfb347825c71bc2084f5b, type: 3}
+      propertyPath: m_Size.y
+      value: 0.06441116
+      objectReference: {fileID: 0}
+    - target: {fileID: 6931214671698101382, guid: c746619bfcbbfb347825c71bc2084f5b, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.050742626
+      objectReference: {fileID: 0}
+    - target: {fileID: 6931214671698101382, guid: c746619bfcbbfb347825c71bc2084f5b, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.24204254
+      objectReference: {fileID: 0}
+    - target: {fileID: 6931214671698101382, guid: c746619bfcbbfb347825c71bc2084f5b, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7777820458540167953, guid: c746619bfcbbfb347825c71bc2084f5b, type: 3}
+      propertyPath: m_Size.y
+      value: 0.6748323
+      objectReference: {fileID: 0}
+    - target: {fileID: 7777820458540167953, guid: c746619bfcbbfb347825c71bc2084f5b, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.05040881
+      objectReference: {fileID: 0}
     - target: {fileID: 7777820458540167955, guid: c746619bfcbbfb347825c71bc2084f5b, type: 3}
       propertyPath: inputManager
       value: 

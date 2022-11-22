@@ -14,6 +14,9 @@ public class PlayerMovement : MonoBehaviour
     [Header("References:")]
     public Rigidbody2D rb;
     public InputManager inputManager = null;
+    public LayerMask groundLayer;
+    public Collider2D legs;
+    public Animator animator;
 
 
     [Tooltip("The sprite renderer that represents the player.")]
@@ -21,6 +24,28 @@ public class PlayerMovement : MonoBehaviour
 
 
     bool canJump;
+    // Whether the player is in the middle of a jump right now
+    public bool jumping = false;
+
+    //if the player is touching the ground
+    public bool grounded = false;
+    #region Player State Variables
+
+    // Enum used for categorizing the player's state
+    public enum PlayerState
+    {
+        Idle,
+        Run,
+        Jump, 
+        Fall,
+        Dead //Might delete later
+    }
+
+    // The player's current state (walking, idle, jumping, or falling)
+    public PlayerState state = PlayerState.Idle;
+    #endregion
+
+
     #region Input from Input Manager
     // The horizontal movement input collected from the input manager
     public float horizontalMovementInput
@@ -61,6 +86,14 @@ public class PlayerMovement : MonoBehaviour
             }
         }
     }
+    private void Awake()
+    {
+        if (inputManager == null)
+        {
+            inputManager = GameObject.Find("InputManager").GetComponent<InputManager>();
+
+        }
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -68,12 +101,6 @@ public class PlayerMovement : MonoBehaviour
         {
             rb = GetComponent<Rigidbody2D>();
         }
-        if(inputManager == null)
-        {
-            inputManager = GameObject.Find("InputManager").GetComponent<InputManager>();
-
-        }
-
     }
 
     // Update is called once per frame
@@ -81,21 +108,41 @@ public class PlayerMovement : MonoBehaviour
     {
         Move();
         HandleSpriteDirection();
+        DetermineState();
         if (Input.GetKeyDown(KeyCode.Space))
         {
             Jump();
         }
     }
+    void FixedUpdate()
+    {
+        if (legs.IsTouchingLayers(groundLayer))
+        {
+            grounded = true;
+            jumping = false;
+        }
+    }
 
     void Move()
     {
-        movementDirection = Input.GetAxis("Horizontal");
-        rb.velocity = new Vector2(movementDirection * MOVEMENT_SPEED, rb.velocity.y); 
+        if (Input.GetButton("Horizontal"))
+        {
+            movementDirection = Input.GetAxis("Horizontal");
+            rb.velocity = new Vector2(movementDirection * MOVEMENT_SPEED, rb.velocity.y);
+            SetState(PlayerState.Run);
+            Debug.Log(state);
+        }
+        else
+        {
+            if (grounded) animator.SetBool("isIdle", true);// Turn on idle animation
+
+        }
     }
 
     void Jump()
     {
         rb.AddForce(new Vector2(0, JUMP_SPEED), ForceMode2D.Impulse);
+        jumping = true;
     }
     private void HandleSpriteDirection()
     {
@@ -111,4 +158,43 @@ public class PlayerMovement : MonoBehaviour
             }
         }
     }
+    #region State Functions
+
+    public PlayerState GetState()
+    {
+        return state;
+    }
+
+
+    public void SetState(PlayerState newState)
+    {
+        state = newState;
+    }
+
+    private void DetermineState()
+    {
+        if (grounded)
+        {
+            if (Input.GetButton("Horizontal"))
+            {
+                SetState(PlayerState.Run);
+            }
+            else
+            {
+                SetState(PlayerState.Idle);
+            }
+        }
+        else
+        {
+            if (jumping)
+            {
+                SetState(PlayerState.Jump);
+            }
+            else
+            {
+                SetState(PlayerState.Fall);
+            }
+        }
+    }
+    #endregion
 }

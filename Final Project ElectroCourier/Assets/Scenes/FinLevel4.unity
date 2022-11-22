@@ -481,6 +481,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1422935914}
     m_Modifications:
+    - target: {fileID: 986632765, guid: b6691233ba28f044693229a05e78db68, type: 3}
+      propertyPath: flyingEnemies.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 986632767, guid: b6691233ba28f044693229a05e78db68, type: 3}
+      propertyPath: m_Size.x
+      value: 12.281054
+      objectReference: {fileID: 0}
+    - target: {fileID: 986632767, guid: b6691233ba28f044693229a05e78db68, type: 3}
+      propertyPath: m_Size.y
+      value: 7.1805305
+      objectReference: {fileID: 0}
+    - target: {fileID: 986632767, guid: b6691233ba28f044693229a05e78db68, type: 3}
+      propertyPath: m_Offset.x
+      value: -3.8960018
+      objectReference: {fileID: 0}
+    - target: {fileID: 986632767, guid: b6691233ba28f044693229a05e78db68, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.025062084
+      objectReference: {fileID: 0}
     - target: {fileID: 8249473811972773075, guid: b6691233ba28f044693229a05e78db68, type: 3}
       propertyPath: m_Name
       value: Flying Enemy
@@ -35702,7 +35722,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1396489310
 Transform:
   m_ObjectHideFlags: 0

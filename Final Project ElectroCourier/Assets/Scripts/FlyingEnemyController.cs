@@ -5,6 +5,7 @@ using UnityEngine;
 public class FlyingEnemyController : MonoBehaviour
 {
     public FlyingEnemy[] flyingEnemies;
+    
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
@@ -16,6 +17,7 @@ public class FlyingEnemyController : MonoBehaviour
             }
         }
     }
+  
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))

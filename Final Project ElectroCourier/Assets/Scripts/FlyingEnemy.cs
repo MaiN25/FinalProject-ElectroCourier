@@ -58,6 +58,7 @@ public class FlyingEnemy : MonoBehaviour
         {
             //gameManager.LevelCleared();
             gameObject.SetActive(false);
+            ScoreDisplay.score += 1000;
         }
     }
     void Chase()

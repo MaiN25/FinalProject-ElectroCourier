@@ -19,7 +19,7 @@ public class ScoreDisplay : MonoBehaviour
 
     void Update()
     {
-        score += .0005f;
+        score += .001f;
         if (score > highscore)
         {
             highscore = score;

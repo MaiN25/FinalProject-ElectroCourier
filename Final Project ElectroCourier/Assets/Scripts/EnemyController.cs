@@ -16,7 +16,6 @@ public class EnemyController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         gameManager = GameObject.Find("GameManager").GetComponent<Game_Manager>();
-
     }
 
     void Update()
@@ -31,9 +30,9 @@ public class EnemyController : MonoBehaviour
         {
 
             //gameManager.LevelCleared();
-            Game_Manager.AddScore(5000);
-            gameObject.SetActive(false);
             
+            gameObject.SetActive(false);
+            ScoreDisplay.score += 500;
         }
     }
     

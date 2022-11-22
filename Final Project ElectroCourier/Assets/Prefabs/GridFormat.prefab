@@ -206,7 +206,7 @@ GameObject:
   - component: {fileID: 6242280885870054468}
   - component: {fileID: 2213949764965476617}
   - component: {fileID: 5403106940805867919}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Tilemap_Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1137,7 +1137,7 @@ GameObject:
   - component: {fileID: 6242280887449035313}
   - component: {fileID: 6242280887449035317}
   - component: {fileID: 6242280887449035316}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Tilemap_WalkableProps
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -125,18 +125,11 @@ public class PlayerMovement : MonoBehaviour
 
     void Move()
     {
-        if (Input.GetButton("Horizontal"))
-        {
-            movementDirection = Input.GetAxis("Horizontal");
-            rb.velocity = new Vector2(movementDirection * MOVEMENT_SPEED, rb.velocity.y);
-            SetState(PlayerState.Run);
-            Debug.Log(state);
-        }
-        else
-        {
-            if (grounded) animator.SetBool("isIdle", true);// Turn on idle animation
+        movementDirection = Input.GetAxis("Horizontal");
+        rb.velocity = new Vector2(movementDirection * MOVEMENT_SPEED, rb.velocity.y);
+        SetState(PlayerState.Run);
+        if (grounded && !this.transform.hasChanged) animator.SetBool("isIdle", true);// Turn on idle animation
 
-        }
     }
 
     void Jump()

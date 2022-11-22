@@ -26,7 +26,8 @@ public class Trigger : MonoBehaviour
     public bool endGame;
     public ItemCollection pickups;
 
-    private GameObject[] packages;
+    // private GameObject[] packages;
+    private int totalpackages;
     private int collectedPackages;
 
     void Start()
@@ -35,9 +36,10 @@ public class Trigger : MonoBehaviour
         {
             GetComponent<SpriteRenderer>().enabled = false;
         }
-        packages = GameObject.FindGameObjectsWithTag("Pickup");
+       // packages = GameObject.FindGameObjectsWithTag("Pickup");
         collectedPackages = pickups.packages;
-        Debug.Log(packages.Length);
+        totalpackages = 75;
+       // Debug.Log(packages.Length);
 
     }
 
@@ -69,7 +71,7 @@ public class Trigger : MonoBehaviour
             {
                 //if it's the end of the game and all of the packages been collected, show the winning page 
                 //else, show the losing page 
-                if (collectedPackages == packages.Length)
+                if (collectedPackages >= totalpackages)
                 {
                     Game_Manager.instance.LevelCleared();
                 }

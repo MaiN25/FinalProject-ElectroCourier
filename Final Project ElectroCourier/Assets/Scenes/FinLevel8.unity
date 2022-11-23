@@ -69625,6 +69625,10 @@ PrefabInstance:
       propertyPath: m_Tiles.Array.data[34].second.m_TileObjectToInstantiateIndex
       value: 65535
       objectReference: {fileID: 0}
+    - target: {fileID: 6242280887520293684, guid: 38d4062db1dced84badd3e9e042af70a, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6242280887520293707, guid: 38d4062db1dced84badd3e9e042af70a, type: 3}
       propertyPath: m_Size.x
       value: 44
@@ -75798,6 +75802,10 @@ PrefabInstance:
       propertyPath: packageText
       value: 
       objectReference: {fileID: 1037901610}
+    - target: {fileID: 7777820458540167955, guid: c746619bfcbbfb347825c71bc2084f5b, type: 3}
+      propertyPath: JUMP_SPEED
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 7777820458540167959, guid: c746619bfcbbfb347825c71bc2084f5b, type: 3}
       propertyPath: m_RootOrder
       value: 7

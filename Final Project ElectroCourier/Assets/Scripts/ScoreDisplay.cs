@@ -22,7 +22,7 @@ public class ScoreDisplay : MonoBehaviour
         score += .001f;
         if (score > highscore)
         {
-            highscore = score;
+            highscore = ((int)score);
             highScoreText.text = string.Format("High Score: {0:000}", highscore);
             PlayerPrefs.SetFloat("highscore", highscore);
             scoreText.text = string.Format("Score: {0:000}", score);
@@ -41,7 +41,7 @@ public class ScoreDisplay : MonoBehaviour
     public void SaveHighScore()
     {
 
-        PlayerPrefs.SetFloat("highscore", highscore);
+        PlayerPrefs.SetInt("highscore", ((int)highscore));
         PlayerPrefs.Save();
 
     }

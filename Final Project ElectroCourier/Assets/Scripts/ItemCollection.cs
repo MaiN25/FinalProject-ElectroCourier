@@ -16,15 +16,12 @@ public class ItemCollection : MonoBehaviour
             packageText.text = "Packages : 0";
         }
     }
-    private void OnTriggerEnter2D(Collider2D collision)
+    public void SetPackagesNumber(int count)
     {
-        if (collision.CompareTag("Pickup"))
-        {
-            Destroy(collision.gameObject);
-            packages++;
-            UpdatePackageUI();
-        }
+        packages = count;
+        UpdatePackageUI();
     }
+  
     public void LogPackages()
     {
         Debug.Log("Package number: " + packages);

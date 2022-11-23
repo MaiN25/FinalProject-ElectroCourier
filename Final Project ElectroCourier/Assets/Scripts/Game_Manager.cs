@@ -40,7 +40,7 @@ public class Game_Manager : MonoBehaviour
     }
 
     [Tooltip("The highest score acheived on this device")]
-    public float highScore = 0;
+    public int highScore = 0;
 
 
     [Tooltip("Page index in the UIManager to go to on winning the game")]
@@ -66,7 +66,7 @@ public class Game_Manager : MonoBehaviour
         // Less urgent startup behaviors, like loading highscores
         if (PlayerPrefs.HasKey("highscore"))
         {
-            highScore = PlayerPrefs.GetFloat("highscore");
+            highScore = PlayerPrefs.GetInt("highscore");
         }
         if (PlayerPrefs.HasKey("score"))
         {
@@ -152,25 +152,12 @@ public class Game_Manager : MonoBehaviour
         }
         UpdateUIElements();
     }
-
-    // Adds a number to the player's score stored in the gameManager
-    public static void AddScore(int scoreAmount)
-    {
-        score += scoreAmount;
-        if (score > instance.highScore)
-        {
-            SaveHighScore();
-        }
-        UpdateUIElements();
-    }
-
-
-
+  
     // Resets the current player score
 
     public static void ResetScore()
     {
-        PlayerPrefs.SetInt("score", 0);
+        PlayerPrefs.SetFloat("score", 0);
         score = 0;
     }
 
@@ -180,11 +167,11 @@ public class Game_Manager : MonoBehaviour
     public static void ResetGamePlayerPrefs()
     {
 
-        PlayerPrefs.SetInt("score", 0);
+        PlayerPrefs.SetFloat("score", 0);
         ScoreDisplay.score = 0;
 
-        PlayerPrefs.SetInt("highscore", 0);
-        ScoreDisplay.highscore = 0;
+        //PlayerPrefs.SetInt("highscore", 0);
+        //ScoreDisplay.highscore = 0;
 
     }
 
@@ -194,8 +181,8 @@ public class Game_Manager : MonoBehaviour
     {
         if (score > instance.highScore)
         {
-            PlayerPrefs.SetFloat("highscore", score);
-            instance.highScore = score;
+            PlayerPrefs.SetInt("highscore", ((int)score));
+            instance.highScore = ((int)score);
         }
         UpdateUIElements();
     }

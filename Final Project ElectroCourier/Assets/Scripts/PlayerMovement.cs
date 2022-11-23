@@ -109,7 +109,7 @@ public class PlayerMovement : MonoBehaviour
         Move();
         HandleSpriteDirection();
         DetermineState();
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) & grounded)
         {
             Jump();
         }
@@ -120,6 +120,11 @@ public class PlayerMovement : MonoBehaviour
         {
             grounded = true;
             jumping = false;
+        }
+        else
+        {
+            grounded = false;
+            jumping = true;
         }
     }
 
@@ -134,8 +139,9 @@ public class PlayerMovement : MonoBehaviour
 
     void Jump()
     {
-        rb.AddForce(new Vector2(0, JUMP_SPEED), ForceMode2D.Impulse);
+        rb.AddForce(new Vector2(0, JUMP_SPEED * (rb.gravityScale / 2) ), ForceMode2D.Impulse);
         jumping = true;
+        grounded = false;
     }
     private void HandleSpriteDirection()
     {

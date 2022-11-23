@@ -47,12 +47,6 @@ public class Game_Manager : MonoBehaviour
     public int gameVictoryPageIndex = 0;
     [Tooltip("The victory effect to create when the player won")]
     public GameObject victoryEffect;
-
-
-    [Header("Health")]
-    public float currentHealth = 1f;
-    public GameObject healthBar;
-
     private void Awake()
     {
         // When this component is first added or activated, setup the global reference
@@ -81,11 +75,15 @@ public class Game_Manager : MonoBehaviour
 
     }
 
+
+
+
+
     //function that gets called when the application (or playmode) ends
     private void OnApplicationQuit()
     {
         SaveHighScore();
-        ScoreDisplay.Reset();
+        ResetScore();
     }
 
 
@@ -139,28 +137,52 @@ public class Game_Manager : MonoBehaviour
             uiManager.GoToPage(gameOverPageIndex);
         }
     }
-  
-  
+
+    [Header("Health")]
+    public float currentHealth = 1f;
+    public GameObject healthBar;
 
     public void ChangeHealthBar()
     {
         //indicate the player's health
         healthBar.GetComponent<UnityEngine.UI.Image>().fillAmount = currentHealth;
-        PlayerPrefs.SetFloat("Health", currentHealth);
         if (currentHealth <= 0)
         {
             GameOver();
         }
         UpdateUIElements();
     }
- 
 
-    // Resets the game player prefs of the health and high score
+    // Adds a number to the player's score stored in the gameManager
+    public static void AddScore(int scoreAmount)
+    {
+        score += scoreAmount;
+        if (score > instance.highScore)
+        {
+            SaveHighScore();
+        }
+        UpdateUIElements();
+    }
+
+
+
+    // Resets the current player score
+
+    public static void ResetScore()
+    {
+        PlayerPrefs.SetInt("score", 0);
+        score = 0;
+    }
+
+
+    // Resets the game player prefs of the lives, health, and score
 
     public static void ResetGamePlayerPrefs()
     {
 
-        PlayerPrefs.SetFloat("Health", 1f);
+        PlayerPrefs.SetInt("score", 0);
+        ScoreDisplay.score = 0;
+
         PlayerPrefs.SetInt("highscore", 0);
         ScoreDisplay.highscore = 0;
 

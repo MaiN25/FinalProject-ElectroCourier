@@ -32046,30 +32046,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1039021053641537702, guid: f663a883da56d344ca9181d924470af2, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1039021053641537702, guid: f663a883da56d344ca9181d924470af2, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1039021053641537702, guid: f663a883da56d344ca9181d924470af2, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1843891140}
-    - target: {fileID: 1039021053641537702, guid: f663a883da56d344ca9181d924470af2, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1039021053641537702, guid: f663a883da56d344ca9181d924470af2, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Replay
-      objectReference: {fileID: 0}
-    - target: {fileID: 1039021053641537702, guid: f663a883da56d344ca9181d924470af2, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: Game_Manager, Assembly-CSharp
-      objectReference: {fileID: 0}
     - target: {fileID: 3865202985901192242, guid: f663a883da56d344ca9181d924470af2, type: 3}
       propertyPath: m_Name
       value: Level Canvas

@@ -6,11 +6,6 @@ using TMPro;
 
 public class ScoreDisplay : MonoBehaviour
 {
-
-    // The global instance for other scripts to reference
-    public static ScoreDisplay instance = null;
-
-
     public static float score;
     public static float highscore;
     public TMP_Text scoreText;

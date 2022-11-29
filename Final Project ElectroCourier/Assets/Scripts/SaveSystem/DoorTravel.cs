@@ -25,7 +25,7 @@ public class DoorTravel : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            ChangeScene(collision.transform.position);
+            ChangeScene();
             if (PlayerComponentFinder.isFirstRoom == true)
             {
                 PlayerComponentFinder.isFirstRoom = false;
@@ -34,7 +34,7 @@ public class DoorTravel : MonoBehaviour
     }
 
     // When the player enters a door to switch levels, the target door variable is set so the player knows which door it will come out of in the next scene. The game data is saved to be loaded in the next room and the next room is then loaded
-    public void ChangeScene(Vector2 playerPos)
+    public void ChangeScene()
     {
         sld.TempSave();
         targetDoor = SceneManager.GetActiveScene().name;

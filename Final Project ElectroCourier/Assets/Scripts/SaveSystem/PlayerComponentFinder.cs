@@ -33,11 +33,10 @@ public class PlayerComponentFinder : MonoBehaviour
         // If the player is not in the first room, make sure they spawn by the door they were supposed to be travelling through
         if (!isFirstRoom)
         {
+            Debug.Log("Setting Player Position to Entrance");
             DoorTravel[] doorList = GameObject.FindObjectsOfType<DoorTravel>();
             for (int i = 0; i < doorList.Length; i++)
             {
-                Debug.Log(SceneManager.GetActiveScene().name + " == " + DoorTravel.targetDoor + "?");
-                Debug.Log(SceneManager.GetActiveScene().name.Equals(DoorTravel.targetDoor));
                 if (doorList[i].targetScene.Equals(DoorTravel.targetDoor))
                 {
                     Transform door = doorList[i].transform;

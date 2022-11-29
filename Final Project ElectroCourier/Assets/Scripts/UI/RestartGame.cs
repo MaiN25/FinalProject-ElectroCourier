@@ -5,13 +5,18 @@ using UnityEngine.SceneManagement;
 
 public class RestartGame : MonoBehaviour
 {
+    SaveLoadData sld;
+
+    private void Start()
+    {
+        sld = FindObjectOfType<SaveLoadData>();
+    }
 
     public void Replay(string sceneName)
     {
         Time.timeScale = 1;
         Game_Manager.SaveHighScore();
-        ScoreDisplay.Reset();
-        SceneManager.LoadScene(sceneName);
+        sld.NewGame(1);
 
     }
 }

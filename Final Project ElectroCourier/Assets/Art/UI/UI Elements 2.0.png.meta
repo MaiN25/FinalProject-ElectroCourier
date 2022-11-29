@@ -372,12 +372,12 @@ TextureImporter:
       name: UI Elements 2.0_12
       rect:
         serializedVersion: 2
-        x: 26
-        y: 150
-        width: 222
-        height: 162
+        x: 1009
+        y: 803
+        width: 107
+        height: 114
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

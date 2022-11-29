@@ -36,11 +36,8 @@ public class Trigger : MonoBehaviour
         {
             GetComponent<SpriteRenderer>().enabled = false;
         }
-       // packages = GameObject.FindGameObjectsWithTag("Pickup");
         collectedPackages = pickups.packages;
         totalpackages = 75;
-       // Debug.Log(packages.Length);
-
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -70,7 +67,8 @@ public class Trigger : MonoBehaviour
             if (endGame)
             {
                 //if it's the end of the game and all of the packages been collected, show the winning page 
-                //else, show the losing page 
+                //else, show the losing page
+                //in both cases, delete the save since the game has been completed
                 if (collectedPackages >= totalpackages)
                 {
                     Game_Manager.instance.LevelCleared();

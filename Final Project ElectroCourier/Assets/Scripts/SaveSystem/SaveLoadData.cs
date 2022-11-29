@@ -24,7 +24,6 @@ public class SaveLoadData : MonoBehaviour
     private void Awake()
     {
         DontDestroyOnLoad(this.gameObject);
-        /*
         if (instance == null)
         {
             instance = this;
@@ -33,26 +32,25 @@ public class SaveLoadData : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
-        */
     }
 
     // When the user chooses to play a new game and picks a saveslot to override, the saveslot is updated to match the one chosen by the user, the first level is loaded,
     // a new save object is created and data is saved to the proper save file. Score is reset to zero
     public void NewGame(int saveNum)
     {
+        Time.timeScale = 1;
         saveSlot = saveNum;
         SceneManager.LoadScene(DefaultLevel);
         playerSave = new PlayerSave
         {
             packages = 0,
             room = DefaultLevel,
-            playerPosition = new float[] { -13.03f, -4.1f, 0 },
+            playerPosition = new float[] { -13.03f, -3.9f, 0 },
             health = 1,
             score = 0
         };
         tempSaves = new float[] { -999, -999, -999 };
         string jsonSave = JsonUtility.ToJson(playerSave);
-        Debug.Log("Overriding Save " + saveSlot);
         File.WriteAllText(Application.persistentDataPath + "/SaveData_SaveSlot" + saveSlot + ".json", jsonSave);
         ScoreDisplay.Reset();
     }
@@ -61,14 +59,15 @@ public class SaveLoadData : MonoBehaviour
     // The player movement is told it's in the first room, so it won't override the player's saved position
     public void StartLoad(int saveNum)
     {
+        Time.timeScale = 1;
         saveSlot = saveNum;
+        PlayerComponentFinder.isFirstRoom = true;
         tempSaves = new float[] { -999, -999, -999 };
         LoadSave();
         Debug.Log(playerSave.room + " " + playerSave.room.GetType());
         SceneManager.LoadScene(playerSave.room);
         UpdateUsedObjects(GameObject.FindObjectOfType<PlayerComponentFinder>());
         SetPlayerFromSave(true);
-        PlayerComponentFinder.isFirstRoom = true;
         pcf.gm.ChangeHealthBar();
     }
 
@@ -110,12 +109,11 @@ public class SaveLoadData : MonoBehaviour
         }
         if (playerSave == null)
         {
-            Debug.Log("Player Save Null");
+            Debug.Log("Finding Player Save");
             LoadSave();
         }
         if (tempSaves[0] == -999)
         {
-            Debug.Log("No Temp Save!");
             Game_Manager.instance.currentHealth = playerSave.health;
             ic.packages = playerSave.packages;
             ScoreDisplay.score = playerSave.score;
@@ -163,6 +161,11 @@ public class SaveLoadData : MonoBehaviour
         SetPlayerFromSave(true);
     }
     
+    public void DeleteTemps()
+    {
+        tempSaves = new float[] { -999, -999, -999 };
+        Debug.Log("Deleted Temps: " + tempSaves[0] + ", " + tempSaves[1] + ", " + tempSaves[2]);
+    }
 
     // The player objects are found so saving and loading functions don't fail if you move through rooms
     public void UpdateUsedObjects(PlayerComponentFinder playerCF)

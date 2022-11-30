@@ -185,12 +185,13 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
-            if (jumping)
+            if (jumping && !grounded && rb.velocity.y > 0)
             {
                 SetState(PlayerState.Jump);
             }
-            else
+            else if(rb.velocity.y <= 0)
             {
+                Debug.Log("falling");
                 SetState(PlayerState.Fall);
             }
         }

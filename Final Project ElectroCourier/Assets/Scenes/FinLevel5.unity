@@ -30115,6 +30115,7 @@ GameObject:
   - component: {fileID: 1255288123}
   - component: {fileID: 1255288122}
   - component: {fileID: 1255288124}
+  - component: {fileID: 1255288125}
   m_Layer: 4
   m_Name: Barrier
   m_TagString: Untagged
@@ -30156,7 +30157,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1255288121}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 11.910999, y: 8.43615, z: -0.942572}
+  m_LocalPosition: {x: 11.910999, y: 11.13, z: -0.942572}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -30176,7 +30177,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -14.407829, y: 3.0265899}
+  m_Offset: {x: -14.407829, y: 1.8313842}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -30187,7 +30188,33 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.8108368, y: 1.7566481}
+  m_Size: {x: 0.8108368, y: 4.1470594}
+  m_EdgeRadius: 0
+--- !u!61 &1255288125
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1255288121}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 23.475063, y: 2.288289}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.6322479, y: 3.1656075}
   m_EdgeRadius: 0
 --- !u!1001 &1265534056
 PrefabInstance:
@@ -30478,7 +30505,7 @@ GameObject:
   - component: {fileID: 1982182232}
   - component: {fileID: 1982182231}
   - component: {fileID: 1982182230}
-  m_Layer: 4
+  m_Layer: 7
   m_Name: Tilemap_RainPassthrough
   m_TagString: Untagged
   m_Icon: {fileID: 0}

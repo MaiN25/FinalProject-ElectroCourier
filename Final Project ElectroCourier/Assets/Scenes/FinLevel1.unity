@@ -32814,11 +32814,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1409839904815032834, guid: a68ad23865c0bba48b0839a2a0ecff02, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -6.836975
+      value: -6.837036
       objectReference: {fileID: 0}
     - target: {fileID: 1409839904815032834, guid: a68ad23865c0bba48b0839a2a0ecff02, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -3.4030151
+      value: -3.402954
       objectReference: {fileID: 0}
     - target: {fileID: 1409839904815032834, guid: a68ad23865c0bba48b0839a2a0ecff02, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -32832,6 +32832,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1767926858728232054, guid: a68ad23865c0bba48b0839a2a0ecff02, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3621460178623517867, guid: a68ad23865c0bba48b0839a2a0ecff02, type: 3}
       propertyPath: m_Name
       value: TextBox
@@ -32841,8 +32845,33 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6678806582751701188, guid: a68ad23865c0bba48b0839a2a0ecff02, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 1145.4315
+      objectReference: {fileID: 0}
+    - target: {fileID: 6678806582751701188, guid: a68ad23865c0bba48b0839a2a0ecff02, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 140.6261
+      objectReference: {fileID: 0}
+    - target: {fileID: 6678806582751701188, guid: a68ad23865c0bba48b0839a2a0ecff02, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 5
+      value: -2.9444
+      objectReference: {fileID: 0}
+    - target: {fileID: 6678806582751701188, guid: a68ad23865c0bba48b0839a2a0ecff02, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 6.6482
+      objectReference: {fileID: 0}
+    - target: {fileID: 9064167371733586374, guid: a68ad23865c0bba48b0839a2a0ecff02, type: 3}
+      propertyPath: m_text
+      value: I have to pick up 75 packages across my collection route today. It looks
+        like rain, so I better hurry!
+      objectReference: {fileID: 0}
+    - target: {fileID: 9064167371733586374, guid: a68ad23865c0bba48b0839a2a0ecff02, type: 3}
+      propertyPath: m_fontSize
+      value: 36.55
+      objectReference: {fileID: 0}
+    - target: {fileID: 9064167371733586374, guid: a68ad23865c0bba48b0839a2a0ecff02, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 36.55
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a68ad23865c0bba48b0839a2a0ecff02, type: 3}

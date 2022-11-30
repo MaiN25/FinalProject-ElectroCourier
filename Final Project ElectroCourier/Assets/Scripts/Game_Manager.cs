@@ -47,6 +47,10 @@ public class Game_Manager : MonoBehaviour
     public int gameVictoryPageIndex = 0;
     [Tooltip("The victory effect to create when the player won")]
     public GameObject victoryEffect;
+
+    // Access to the SoundControl script in order to make sure two audio clips don't play at the same time
+    private SoundControl sc;
+
     private void Awake()
     {
         // When this component is first added or activated, setup the global reference
@@ -72,7 +76,7 @@ public class Game_Manager : MonoBehaviour
         {
             score = PlayerPrefs.GetFloat("score");
         }
-
+        sc = GameObject.FindObjectOfType<SoundControl>();
     }
 
 
@@ -102,6 +106,7 @@ public class Game_Manager : MonoBehaviour
     public void LevelCleared()
     {
         PlayerPrefs.SetFloat("score", score);
+        sc.SilenceBackSFX();
         Instantiate(victoryEffect, player.transform);
         if (uiManager != null)
         {
@@ -128,6 +133,7 @@ public class Game_Manager : MonoBehaviour
         gameIsOver = true;
         if (gameOverEffect != null)
         {
+            sc.SilenceBackSFX();
             Instantiate(gameOverEffect, transform.position, transform.rotation, null);
         }
         if (uiManager != null)

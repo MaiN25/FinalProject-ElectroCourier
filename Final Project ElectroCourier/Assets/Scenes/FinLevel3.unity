@@ -27099,11 +27099,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6327736583271657508, guid: 14abdc4fa11f769498fd73a009fab6c3, type: 3}
       propertyPath: m_Size.x
-      value: 9.65
+      value: 11.873383
       objectReference: {fileID: 0}
     - target: {fileID: 6327736583271657508, guid: 14abdc4fa11f769498fd73a009fab6c3, type: 3}
       propertyPath: m_Size.y
       value: 8.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 6327736583271657508, guid: 14abdc4fa11f769498fd73a009fab6c3, type: 3}
+      propertyPath: m_Offset.x
+      value: 4.888695
+      objectReference: {fileID: 0}
+    - target: {fileID: 6327736583271657508, guid: 14abdc4fa11f769498fd73a009fab6c3, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.94970655
       objectReference: {fileID: 0}
     - target: {fileID: 6327736583271657509, guid: 14abdc4fa11f769498fd73a009fab6c3, type: 3}
       propertyPath: enemy
@@ -27112,6 +27120,10 @@ PrefabInstance:
     - target: {fileID: 6327736583271657510, guid: 14abdc4fa11f769498fd73a009fab6c3, type: 3}
       propertyPath: m_Name
       value: Flying Enemies Chasing Controller
+      objectReference: {fileID: 0}
+    - target: {fileID: 6327736583271657510, guid: 14abdc4fa11f769498fd73a009fab6c3, type: 3}
+      propertyPath: m_Layer
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6327736583271657511, guid: 14abdc4fa11f769498fd73a009fab6c3, type: 3}
       propertyPath: m_RootOrder
@@ -28019,11 +28031,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1409839904815032834, guid: a68ad23865c0bba48b0839a2a0ecff02, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 7.4466
+      value: 7.446533
       objectReference: {fileID: 0}
     - target: {fileID: 1409839904815032834, guid: a68ad23865c0bba48b0839a2a0ecff02, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.6799927
+      value: 0.67993164
       objectReference: {fileID: 0}
     - target: {fileID: 1409839904815032834, guid: a68ad23865c0bba48b0839a2a0ecff02, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -28570,6 +28582,10 @@ PrefabInstance:
     - target: {fileID: 6327736583271657510, guid: 14abdc4fa11f769498fd73a009fab6c3, type: 3}
       propertyPath: m_Name
       value: Flying Enemies Chasing Controller (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6327736583271657510, guid: 14abdc4fa11f769498fd73a009fab6c3, type: 3}
+      propertyPath: m_Layer
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6327736583271657511, guid: 14abdc4fa11f769498fd73a009fab6c3, type: 3}
       propertyPath: m_RootOrder

@@ -12,9 +12,13 @@ public class SaveLoadData : MonoBehaviour
     public GameObject player;
     public ItemCollection ic;
     public PlayerComponentFinder pcf;
+
+
     public static float[] tempSaves;
     string DefaultLevel = "FinLevel1";
     string TestLevel = "Level";
+
+    private SoundControl sc;
 
     // The currently selected saveslot, allows for saving and loading to the same file
     int saveSlot = 1;
@@ -32,6 +36,7 @@ public class SaveLoadData : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
+        sc = FindObjectOfType<SoundControl>();
     }
 
     // When the user chooses to play a new game and picks a saveslot to override, the saveslot is updated to match the one chosen by the user, the first level is loaded,
@@ -53,6 +58,7 @@ public class SaveLoadData : MonoBehaviour
         string jsonSave = JsonUtility.ToJson(playerSave);
         File.WriteAllText(Application.persistentDataPath + "/SaveData_SaveSlot" + saveSlot + ".json", jsonSave);
         ScoreDisplay.Reset();
+        sc.PlayBackSFX();
     }
 
     // When the user chooses to load a save file, their chosen save slot is saved to the variable, information is loaded from the file, the player's previous room is loaded, player objects are found and the player info is updated
@@ -69,6 +75,7 @@ public class SaveLoadData : MonoBehaviour
         UpdateUsedObjects(GameObject.FindObjectOfType<PlayerComponentFinder>());
         SetPlayerFromSave(true);
         pcf.gm.ChangeHealthBar();
+        sc.PlayBackSFX();
     }
 
     // When the game is saved through exiting or by using the debug key Right Ctrl, the code ensures it knows the player objects and saves various player data to the save file

@@ -8,6 +8,7 @@ public class ItemCollection : MonoBehaviour
     public int packages = 0;
     public bool isCanvasText = false;
     public TextMeshProUGUI packageText;
+    private SoundControl sc;
 
     private void Start()
     {
@@ -15,10 +16,12 @@ public class ItemCollection : MonoBehaviour
         {
             packageText.text = "Packages : 0";
         }
+        sc = GameObject.FindObjectOfType<SoundControl>();
     }
     public void SetPackagesNumber(int count)
     {
         packages = count;
+        sc.PickupSFX();
         UpdatePackageUI();
     }
   

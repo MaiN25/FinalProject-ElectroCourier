@@ -13,6 +13,7 @@ public class EnemyController : MonoBehaviour
     public Collider2D head;
     private float headY;
     private Game_Manager gameManager;
+    private SoundControl sc;
     private bool collidingWithPlayer;
 
     void Start()
@@ -21,6 +22,7 @@ public class EnemyController : MonoBehaviour
         headY = transform.position.y + head.offset.y;
         collidingWithPlayer = false;
         gameManager = GameObject.Find("GameManager").GetComponent<Game_Manager>();
+        sc = GameObject.FindObjectOfType<SoundControl>();
     }
 
     void Update()
@@ -53,11 +55,13 @@ public class EnemyController : MonoBehaviour
             {
                 gameObject.SetActive(false);
                 ScoreDisplay.score += 500;
+                sc.EnemyDeathSFX();
             }
             else
             {
                 gameManager.currentHealth -= 0.2f;
                 gameManager.ChangeHealthBar();
+                sc.PlayerHurtSFX();
             }
         }  
          

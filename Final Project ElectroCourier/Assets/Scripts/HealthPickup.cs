@@ -5,12 +5,14 @@ using UnityEngine;
 public class HealthPickup : MonoBehaviour
 {
     private Game_Manager gameManager;
+    private SoundControl sc;
     public float addHealth;
     public GameObject healthPickUp;
 
     void Start()
     {
         gameManager = GameObject.Find("GameManager").GetComponent<Game_Manager>();
+        sc = GameObject.FindObjectOfType<SoundControl>();
     }
     public void OnTriggerEnter2D(Collider2D collision)
     {
@@ -19,6 +21,7 @@ public class HealthPickup : MonoBehaviour
             gameManager.currentHealth += addHealth;
             gameManager.ChangeHealthBar();
             healthPickUp.SetActive(false);
+            sc.HealSFX();
         }
         else
         {

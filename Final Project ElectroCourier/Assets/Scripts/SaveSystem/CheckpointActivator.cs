@@ -5,11 +5,13 @@ using UnityEngine;
 public class CheckpointActivator : MonoBehaviour
 {
     SaveLoadData sld;
+    SoundControl sc;
     SpriteRenderer sr;
 
     void Start()
     {
         sld = GameObject.FindObjectOfType<SaveLoadData>();
+        sc = GameObject.FindObjectOfType<SoundControl>();
         sr = this.gameObject.GetComponent<SpriteRenderer>();
     }
 
@@ -21,6 +23,7 @@ public class CheckpointActivator : MonoBehaviour
 
     private IEnumerator SaveEffect()
     {
+        sc.CheckpointSFX();
         sr.color = Color.cyan;
         yield return new WaitForSeconds(0.25f);
         sr.color = Color.white;

@@ -15,13 +15,14 @@ public class FlyingEnemy : MonoBehaviour
     public bool causedDamage = false;
     public Transform startingPosition;
     private Game_Manager gameManager;
+    private SoundControl sc;
 
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
         headY = transform.position.y + head.offset.y;
         gameManager = GameObject.Find("GameManager").GetComponent<Game_Manager>();
-
+        sc = GameObject.FindObjectOfType<SoundControl>();
     }
 
     // Update is called once per frame
@@ -80,11 +81,13 @@ public class FlyingEnemy : MonoBehaviour
             {
                 gameObject.SetActive(false);
                 ScoreDisplay.score += 500;
+                sc.EnemyDeathSFX();
             }
             else
             {
                 gameManager.currentHealth -= 0.2f;
                 gameManager.ChangeHealthBar();
+                sc.PlayerHurtSFX();
             }
         }
 

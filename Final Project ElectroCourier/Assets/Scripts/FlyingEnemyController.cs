@@ -4,17 +4,14 @@ using UnityEngine;
 
 public class FlyingEnemyController : MonoBehaviour
 {
-    public FlyingEnemy[] flyingEnemies;
+    public FlyingEnemy enemy;
     
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
-            foreach(FlyingEnemy enemy in flyingEnemies)
-            {
                 //Later will be hidden at the start of the game, and will be activated here
                 enemy.canChase = true;
-            }
         }
     }
   
@@ -22,11 +19,9 @@ public class FlyingEnemyController : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            foreach (FlyingEnemy enemy in flyingEnemies)
-            {
                 //Late will return to be hidden
                 enemy.canChase = false;
-            }
+            
         }
     }
 }

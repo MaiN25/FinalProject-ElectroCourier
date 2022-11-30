@@ -301,7 +301,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7972148312750602117, guid: f24ed8b2b89a73a4da97ece27ec60821, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 8.174042
+      value: 10.12
       objectReference: {fileID: 0}
     - target: {fileID: 7972148312750602117, guid: f24ed8b2b89a73a4da97ece27ec60821, type: 3}
       propertyPath: m_LocalPosition.z
@@ -356,6 +356,10 @@ PrefabInstance:
     - target: {fileID: 1237758324, guid: f663a883da56d344ca9181d924470af2, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2608089735638433622, guid: f663a883da56d344ca9181d924470af2, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 3.8632812
       objectReference: {fileID: 0}
     - target: {fileID: 3865202985901192242, guid: f663a883da56d344ca9181d924470af2, type: 3}
       propertyPath: m_Name
@@ -1124,7 +1128,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 334706950919837683, guid: 69e564490affc1d4d8717315e960da02, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 8.074588
+      value: 10.1
       objectReference: {fileID: 0}
     - target: {fileID: 334706950919837683, guid: 69e564490affc1d4d8717315e960da02, type: 3}
       propertyPath: m_LocalPosition.z
@@ -36423,7 +36427,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1396489310
 Transform:
   m_ObjectHideFlags: 0
@@ -36477,8 +36481,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f573bbb448866d544b04ef2496bca2ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flyingEnemies:
-  - {fileID: 376833091}
+  enemy: {fileID: 376833091}
 --- !u!1 &1422935913
 GameObject:
   m_ObjectHideFlags: 0

@@ -5,16 +5,21 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour
 {
     public float moveSpeed = 1f;
-    public LayerMask player;
+    public GameObject player;
+    public BoxCollider2D playerLegs;
     public LayerMask wall;
 
     private Rigidbody2D rb;
     public Collider2D head;
+    private float headY;
     private Game_Manager gameManager;
+    private bool collidingWithPlayer;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        headY = transform.position.y + head.offset.y;
+        collidingWithPlayer = false;
         gameManager = GameObject.Find("GameManager").GetComponent<Game_Manager>();
     }
 
@@ -26,14 +31,7 @@ public class EnemyController : MonoBehaviour
     
     void FixedUpdate()
     {
-        if (head.IsTouchingLayers(player))
-        {
-
-            //gameManager.LevelCleared();
-            
-            gameObject.SetActive(false);
-            ScoreDisplay.score += 500;
-        }
+        
     }
     
     private void Flip()
@@ -41,24 +39,35 @@ public class EnemyController : MonoBehaviour
         transform.localScale = new Vector2(transform.localScale.x * -1, transform.localScale.y);
         moveSpeed *= -1;
     }
-    private void OnCollisionEnter2D(Collision2D other)
-    {
-        if (other.gameObject.tag == "Wall")
-        {
-            Flip();
-        }
-        if(other.gameObject.tag == "Player")
-        {
-            gameManager.currentHealth -= 0.2f;
-            gameManager.ChangeHealthBar();
-        }
-            
-    }
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.tag == "Wall")
         {
             Flip();
+        }
+        
+        if(other.gameObject.tag == "Player" & collidingWithPlayer == false)
+        {
+            collidingWithPlayer = true;
+            if(other.gameObject.transform.position.y >= headY)
+            {
+                gameObject.SetActive(false);
+                ScoreDisplay.score += 500;
+            }
+            else
+            {
+                gameManager.currentHealth -= 0.2f;
+                gameManager.ChangeHealthBar();
+            }
+        }  
+         
+    }
+    
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if(other.gameObject.tag == "Player")
+        {
+            collidingWithPlayer = false;
         }
     }
 }

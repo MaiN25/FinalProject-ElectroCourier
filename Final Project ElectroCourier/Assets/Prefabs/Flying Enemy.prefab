@@ -1,78 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &986632764
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 986632766}
-  - component: {fileID: 986632765}
-  - component: {fileID: 986632767}
-  m_Layer: 0
-  m_Name: FlyEnem Controller
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &986632766
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 986632764}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.4780324, y: -0.6270098, z: -0.004962426}
-  m_LocalScale: {x: 0.83333325, y: 0.83333325, z: 0.83333325}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 8249473811972773076}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &986632765
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 986632764}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f573bbb448866d544b04ef2496bca2ac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  flyingEnemies:
-  - {fileID: 8249473811972773079}
---- !u!61 &986632767
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 986632764}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -4.887467, y: 0.38955164}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 10.298123, y: 8.009758}
-  m_EdgeRadius: 0
 --- !u!1 &8249473810318428692
 GameObject:
   m_ObjectHideFlags: 0
@@ -143,8 +70,8 @@ GameObject:
   - component: {fileID: 8249473811972773077}
   - component: {fileID: 8249473811972773074}
   - component: {fileID: 8249473811972773097}
-  - component: {fileID: 8249473811972773078}
   - component: {fileID: 8249473811972773079}
+  - component: {fileID: 7408680439404509171}
   m_Layer: 9
   m_Name: Flying Enemy
   m_TagString: Enemy
@@ -165,7 +92,6 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 8249473810318428695}
-  - {fileID: 986632766}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
@@ -261,103 +187,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
---- !u!60 &8249473811972773078
-PolygonCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8249473811972773075}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.96, y: 0.96}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 0.42, y: -0.28}
-      - {x: 0.39999998, y: -0.29999998}
-      - {x: 0.45, y: -0.25}
-      - {x: 0.44, y: -0.17999999}
-      - {x: 0.39, y: -0.11}
-      - {x: 0.32999998, y: -0.089999996}
-      - {x: 0.32, y: -0.02}
-      - {x: 0.42999998, y: -0.04}
-      - {x: 0.48, y: 0.049999997}
-      - {x: 0.48, y: 0.32}
-      - {x: 0.42, y: 0.32}
-      - {x: 0.39999998, y: 0.29999998}
-      - {x: 0.29999998, y: 0.26}
-      - {x: 0.28, y: 0.24}
-      - {x: 0.28, y: 0.12}
-      - {x: 0.29999998, y: 0.099999994}
-      - {x: 0.26, y: 0.08}
-      - {x: 0.26999998, y: 0.13}
-      - {x: 0.21, y: 0.19}
-      - {x: 0.19999999, y: 0.24}
-      - {x: 0.26, y: 0.29999998}
-      - {x: 0.26999998, y: 0.37}
-      - {x: 0.19, y: 0.45}
-      - {x: 0.12, y: 0.44}
-      - {x: 0.099999994, y: 0.42999998}
-      - {x: 0.08, y: 0.31}
-      - {x: 0, y: 0.32}
-      - {x: -0.07, y: 0.32999998}
-      - {x: -0.19999999, y: 0.21}
-      - {x: -0.22999999, y: 0.19999999}
-      - {x: -0.19999999, y: 0.31}
-      - {x: -0.26999998, y: 0.32999998}
-      - {x: -0.22, y: 0.42}
-      - {x: -0.22, y: 0.48}
-      - {x: -0.34, y: 0.48}
-      - {x: -0.42999998, y: 0.45}
-      - {x: -0.48, y: 0.39999998}
-      - {x: -0.48, y: 0.28}
-      - {x: -0.41, y: 0.26999998}
-      - {x: -0.39, y: 0.17}
-      - {x: -0.32999998, y: 0.11}
-      - {x: -0.38, y: 0}
-      - {x: -0.38, y: -0.06}
-      - {x: -0.32999998, y: -0.13}
-      - {x: -0.26999998, y: -0.19}
-      - {x: -0.17999999, y: -0.26}
-      - {x: -0.29999998, y: -0.22}
-      - {x: -0.35999998, y: -0.16}
-      - {x: -0.42999998, y: -0.14999999}
-      - {x: -0.48, y: -0.21}
-      - {x: -0.48, y: -0.32}
-      - {x: -0.42, y: -0.38}
-      - {x: -0.25, y: -0.45}
-      - {x: -0.17, y: -0.45}
-      - {x: -0.11, y: -0.39}
-      - {x: -0.08, y: -0.34}
-      - {x: 0.03, y: -0.44}
-      - {x: 0.13, y: -0.44}
-      - {x: 0.14, y: -0.42}
-      - {x: 0.21, y: -0.25}
-      - {x: 0.26, y: -0.17999999}
-      - {x: 0.28, y: -0.24}
-      - {x: 0.22999999, y: -0.26999998}
-      - {x: 0.19999999, y: -0.37}
-      - {x: 0.22, y: -0.48}
-      - {x: 0.34, y: -0.48}
-      - {x: 0.42999998, y: -0.45}
-      - {x: 0.48, y: -0.39999998}
-      - {x: 0.48, y: -0.28}
-    - - {x: -0.39, y: -0.26999998}
-      - {x: -0.39, y: -0.26999998}
+  m_Constraints: 4
 --- !u!114 &8249473811972773079
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -378,3 +208,19 @@ MonoBehaviour:
   canChase: 0
   causedDamage: 0
   startingPosition: {fileID: 0}
+--- !u!58 &7408680439404509171
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8249473811972773075}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.47999996

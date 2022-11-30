@@ -10,7 +10,7 @@ public class FlyingEnemy : MonoBehaviour
 
     public LayerMask playerLayer;
     public Collider2D head;
-
+    private float headY;
     public bool canChase = false;
     public bool causedDamage = false;
     public Transform startingPosition;
@@ -19,6 +19,7 @@ public class FlyingEnemy : MonoBehaviour
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+        headY = transform.position.y + head.offset.y;
         gameManager = GameObject.Find("GameManager").GetComponent<Game_Manager>();
 
     }
@@ -45,33 +46,46 @@ public class FlyingEnemy : MonoBehaviour
         {
             ReturnToStartingPosition();
         }
+
+        
         Flip();
     }
   
     private void ReturnToStartingPosition()
     {
-            transform.position = Vector2.MoveTowards(transform.position, startingPosition.position, speed * Time.deltaTime);     
+        
+        transform.position = Vector2.MoveTowards(transform.position, startingPosition.position, speed * Time.deltaTime);
+        if(transform.position.Equals(startingPosition.position) & causedDamage == true)
+        {
+            causedDamage = false;
+            canChase = true;
+        } 
+           
     }
 
     void FixedUpdate()
     {
-        if (head.IsTouchingLayers(playerLayer))
-        {
-            gameObject.SetActive(false);
-            ScoreDisplay.score += 1000;
-        }
+        
     }
     void Chase()
     {
         transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
     }
-    private void OnCollisionEnter2D(Collision2D other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.tag == "Player")
+        if (other.gameObject.tag == "Player"& causedDamage == false)
         {
-            gameManager.currentHealth -= 0.2f;
-            gameManager.ChangeHealthBar();
-            transform.position = startingPosition.position;
+            causedDamage = true;
+            if(other.gameObject.transform.position.y >= headY)
+            {
+                gameObject.SetActive(false);
+                ScoreDisplay.score += 500;
+            }
+            else
+            {
+                gameManager.currentHealth -= 0.2f;
+                gameManager.ChangeHealthBar();
+            }
         }
 
     }

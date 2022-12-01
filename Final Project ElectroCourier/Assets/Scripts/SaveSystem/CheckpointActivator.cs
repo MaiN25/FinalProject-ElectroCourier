@@ -15,12 +15,14 @@ public class CheckpointActivator : MonoBehaviour
         sr = this.gameObject.GetComponent<SpriteRenderer>();
     }
 
+    // When a player steps on a checkpoint, the game is saved then both visual and sound effects are activated
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        sld.CheckpointSave();
+        sld.SaveGame();
         StartCoroutine("SaveEffect");
     }
 
+    // When the checkpoint is activated, a tune plays and the checkpoint flashes cyan before returning to its original color
     private IEnumerator SaveEffect()
     {
         sc.CheckpointSFX();

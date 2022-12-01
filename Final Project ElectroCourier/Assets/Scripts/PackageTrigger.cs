@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PackageTrigger : MonoBehaviour
 {
+    // When the player walks into a package, the player's ItemCollection script is found, the number of packages increases by one, the UI is updated, and the gameobject is disabled
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Player")

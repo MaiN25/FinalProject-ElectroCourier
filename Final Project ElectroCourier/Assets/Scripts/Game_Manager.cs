@@ -50,6 +50,8 @@ public class Game_Manager : MonoBehaviour
 
     // Access to the SoundControl script in order to make sure two audio clips don't play at the same time
     private SoundControl sc;
+    // Access to the SaveLoadData script for respawning at checkpoints after death
+    private SaveLoadData sld;
 
     private void Awake()
     {
@@ -76,6 +78,7 @@ public class Game_Manager : MonoBehaviour
         {
             score = PlayerPrefs.GetFloat("score");
         }
+        sld = GameObject.FindObjectOfType<SaveLoadData>();
         sc = GameObject.FindObjectOfType<SoundControl>();
     }
 
@@ -154,7 +157,7 @@ public class Game_Manager : MonoBehaviour
         healthBar.GetComponent<UnityEngine.UI.Image>().fillAmount = currentHealth;
         if (currentHealth <= 0)
         {
-            GameOver();
+            sld.Respawn();
         }
         UpdateUIElements();
     }

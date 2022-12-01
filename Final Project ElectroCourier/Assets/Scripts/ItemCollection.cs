@@ -18,6 +18,8 @@ public class ItemCollection : MonoBehaviour
         }
         sc = GameObject.FindObjectOfType<SoundControl>();
     }
+
+    // When activated by the PackageTrigger script, the package number is updated, a tune plays, and the UI is updated
     public void SetPackagesNumber(int count)
     {
         packages = count;

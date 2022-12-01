@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class SoundControl : MonoBehaviour
 {
+    // singletonAudio follows the SaveLoadData gameobject, so it continues through each level of  the game
+    // The main menu AudioSource and the Win/Lose AudioSources are currently separate objects
     AudioSource singletonAudio;
+
     public AudioClip pickupSFX;
     public AudioClip healSFX;
     public AudioClip playerHurtSFX;
@@ -18,6 +21,7 @@ public class SoundControl : MonoBehaviour
         singletonAudio = this.gameObject.GetComponent<AudioSource>();
     }
 
+    // Game background music
     public void SilenceBackSFX()
     {
         singletonAudio.Stop();
@@ -28,7 +32,7 @@ public class SoundControl : MonoBehaviour
     }
 
 
-
+    // Game element sound effects
     public void PickupSFX()
     {
         singletonAudio.PlayOneShot(pickupSFX, 1f);

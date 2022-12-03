@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System;
 
 public class GameSetting : MonoBehaviour
 {
@@ -13,9 +14,17 @@ public class GameSetting : MonoBehaviour
     [SerializeField] public GameObject mute;
     [SerializeField] public GameObject audioOn;
     
+    //Audio
     AudioSource audioSource;
     private SoundControl sc;
+    
+    //TextSize
+    private TempTrigger textTrigger;
+    [SerializeField] private Slider TextSlider = null;
+    private GameObject textbox;
 
+
+    //Screen Resolution
     public GameObject dropDownObject;
     TMP_Dropdown dropDownMenu;
     Resolution[] resolutions;
@@ -24,6 +33,7 @@ public class GameSetting : MonoBehaviour
     private void Awake()
     {
         sc = GameObject.FindObjectOfType<SoundControl>();
+        textTrigger = GameObject.FindObjectOfType<TempTrigger>();
         audioSource = sc.ReturnAudioSource();
         // Set the PlayerPrefs to be the current volume of the audio source.
         PlayerPrefs.SetFloat("VolumeValue", audioSource.volume);
@@ -50,10 +60,29 @@ public class GameSetting : MonoBehaviour
     }
     public void LoadValues()
     {
+        LoadTextBoxes();
         LoadDropDown();
         LoadAudioValues();
 
     }
+
+     void LoadTextBoxes()
+    {
+        if(textTrigger != null)
+        {
+            textbox = textTrigger.textBoxPrefab;
+        }
+    }
+
+
+    public void ChangeTextSize(float size)
+    {
+        Vector3 scaleChange = new Vector3(size+0.5f, size + 0.5f, size + 0.5f);
+        textbox.transform.localScale = scaleChange;
+    }
+
+#if UNITY_WEBGL
+
     void LoadDropDown()
     {
         //Get the UI dropdown component
@@ -93,7 +122,7 @@ public class GameSetting : MonoBehaviour
         */
 
     }
-    
+
     public void ChangeDropDownSelection(int menuIndex)
     {
 
@@ -110,6 +139,7 @@ public class GameSetting : MonoBehaviour
         Screen.SetResolution(int.Parse(ScreenWidth), int.Parse(ScreenHeight), Screen.fullScreen);
         Debug.Log(ScreenWidth +" "+ ScreenHeight);
     }
+#endif
     void LoadAudioValues()
     {
         float volumeValue = PlayerPrefs.GetFloat("VolumeValue");

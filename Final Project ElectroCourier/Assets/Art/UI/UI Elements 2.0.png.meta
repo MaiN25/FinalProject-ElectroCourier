@@ -3,7 +3,7 @@ guid: cccb9231c00944b42a55aba1fecd38a1
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
-  serializedVersion: 12
+  serializedVersion: 11
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -20,6 +20,7 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
+    flipGreenChannel: 0
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
@@ -63,7 +64,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
-  cookieLightType: 0
+  swizzle: 50462976
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -389,6 +390,48 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: UI Elements 2.0_13
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 75
+        width: 154
+        height: 121
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fbc14e2d35844664b9b589ab11b2996d
+      internalID: 544683694
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI Elements 2.0_14
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 202
+        width: 156
+        height: 135
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f99543c9f70a4e4ca7a044efbb68fe1
+      internalID: -1889915410
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -401,6 +444,7 @@ TextureImporter:
     secondaryTextures: []
     nameFileIdTable:
       UI Elements 2.0_12: -1667370250
+      UI Elements 2.0_13: 544683694
       UI Elements 2.0_2: -980497676
       UI Elements 2.0_10: -1675202426
       UI Elements 2.0_3: -704322582
@@ -412,10 +456,10 @@ TextureImporter:
       UI Elements 2.0_9: 1996561531
       UI Elements 2.0_8: 1971853704
       UI Elements 2.0_11: -2074571301
+      UI Elements 2.0_14: -1889915410
       UI Elements 2.0_6: -358140702
   spritePackingTag: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

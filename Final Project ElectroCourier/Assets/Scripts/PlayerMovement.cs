@@ -191,7 +191,6 @@ public class PlayerMovement : MonoBehaviour
             }
             else if(rb.velocity.y <= 0)
             {
-                Debug.Log("falling");
                 SetState(PlayerState.Fall);
             }
         }

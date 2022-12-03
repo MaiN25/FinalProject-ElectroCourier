@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class SoundControl : MonoBehaviour
 {
+    // The global instance for other scripts to reference
+    public static SoundControl instance = null;
+
     // singletonAudio follows the SaveLoadData gameobject, so it continues through each level of  the game
     // The main menu AudioSource and the Win/Lose AudioSources are currently separate objects
     AudioSource singletonAudio;
@@ -19,6 +22,12 @@ public class SoundControl : MonoBehaviour
     private void Start()
     {
         singletonAudio = this.gameObject.GetComponent<AudioSource>();
+    }
+
+    // Return the background music AudioSource for other scripts to reference
+    public AudioSource ReturnAudioSource()
+    {
+        return singletonAudio;
     }
 
     // Game background music

@@ -24,6 +24,7 @@ public class GameSetting : MonoBehaviour
     private TempTrigger textTrigger;
     [SerializeField] private Slider TextSlider = null;
     private GameObject textbox;
+    //public Vector3 scaleChange = new Vector3(1, 1, 1);
 
 
     //Screen Resolution
@@ -44,6 +45,7 @@ public class GameSetting : MonoBehaviour
         sc.captionText = sc.captionBox.GetComponentInChildren<TextMeshProUGUI>();
         ToggleCaptions();
         sc.CaptionToText();
+        TextSlider.value = PlayerPrefs.GetFloat("Textsize");
         Start();
     }
 
@@ -78,14 +80,19 @@ public class GameSetting : MonoBehaviour
         if(textTrigger != null)
         {
             textbox = textTrigger.textBoxPrefab;
+            TextSlider.value = PlayerPrefs.GetFloat("Textsize");
         }
     }
 
 
     public void ChangeTextSize(float size)
     {
-        Vector3 scaleChange = new Vector3(size+0.5f, size + 0.5f, size + 0.5f);
-        textbox.transform.localScale = scaleChange;
+
+        PlayerPrefs.SetFloat("Textsize", size);
+        Vector3 scaleChange = new Vector3(size + 0.5f, size + 0.5f, size + 0.5f);
+        textTrigger.SetTextBoxSize(scaleChange);
+        //textbox.transform.localScale = scaleChange;
+        //SaveLoadData.instance.SaveGame();
     }
 
 #if UNITY_WEBGL
@@ -95,38 +102,8 @@ public class GameSetting : MonoBehaviour
         //Get the UI dropdown component
         dropDownMenu = dropDownObject.GetComponent<TMP_Dropdown>();
 
-        //get the selected index
-        //int defaultmenuIndex = 0;
-
         //get all options available within this dropdown menu
         List<TMP_Dropdown.OptionData> menuOptions = dropDownMenu.options;
-
-        //get the string value of the selected index
-        //string value = menuOptions[defaultmenuIndex].text;
-
-
-        /*
-        resolutions = Screen.resolutions;
-        dropDownMenu.ClearOptions();
-        List<string> menuOptions = new List<string>();
-
-        int currentResolutionIndex = 0;
-
-        for (int i = 0; i < resolutions.Length; i++)
-        {
-            string menuOption = resolutions[i].width + " × " + resolutions[i].height;
-            menuOptions.Add(menuOption);
-            if(resolutions[i].width == Screen.currentResolution.width && 
-                resolutions[i].height == Screen.currentResolution.height)
-            {
-                currentResolutionIndex = i;
-            }
-        }
-
-        dropDownMenu.AddOptions(menuOptions);
-        dropDownMenu.value = currentResolutionIndex;
-        dropDownMenu.RefreshShownValue();
-        */
 
     }
 
@@ -142,9 +119,7 @@ public class GameSetting : MonoBehaviour
         int index = value.IndexOf(' ');
         string ScreenWidth = value.Substring(0, index);
         string ScreenHeight = value.Substring(index + 2);
-        // Resolution resolution = resolutions[menuIndex];
         Screen.SetResolution(int.Parse(ScreenWidth), int.Parse(ScreenHeight), Screen.fullScreen);
-        Debug.Log(ScreenWidth +" "+ ScreenHeight);
     }
 #endif
     void LoadAudioValues()

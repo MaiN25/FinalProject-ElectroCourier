@@ -6,6 +6,7 @@ using System.IO;
 
 public class SaveLoadData : MonoBehaviour
 {
+    // The global instance for other scripts to reference
     public static SaveLoadData instance;
 
     // Player objects that need to be used for loading data, called by several functions and the player itself so it needs to be public
@@ -53,7 +54,9 @@ public class SaveLoadData : MonoBehaviour
             room = DefaultLevel,
             playerPosition = new float[] { -13.03f, -3.9f, 0 },
             health = 1,
-            score = 0
+            score = 0,
+            textSize = new Vector3(1,1,1)
+
         };
         tempSaves = new float[] { -999, -999, -999 };
         string jsonSave = JsonUtility.ToJson(playerSave);
@@ -85,7 +88,7 @@ public class SaveLoadData : MonoBehaviour
         {
             UpdateUsedObjects(GameObject.FindObjectOfType<PlayerComponentFinder>());
         }
-
+      //  Vector3 text = GameSetting.instance.scaleChange;
         Vector3 playerPos = player.transform.position;
         playerSave = new PlayerSave
         {
@@ -93,7 +96,10 @@ public class SaveLoadData : MonoBehaviour
             room = SceneManager.GetActiveScene().name,
             playerPosition = new float[] { playerPos.x, playerPos.y, playerPos.z },
             health = Game_Manager.instance.currentHealth,
-            score = ScoreDisplay.score
+            score = ScoreDisplay.score,
+           // textSize  = GameObject.FindObjectOfType<TempTrigger>().textBoxPrefab.transform.localScale
+           
+
         };
         string jsonSave = JsonUtility.ToJson(playerSave);
         File.WriteAllText(Application.persistentDataPath + "/SaveData_SaveSlot" + saveSlot + ".json", jsonSave);
@@ -152,6 +158,8 @@ public class SaveLoadData : MonoBehaviour
         public float[] playerPosition;
         public float health;
         public float score;
+        public Vector3 textSize;
+
     }
 
     // Temporary values are used to keep data between levels instead of saving directly to the save file

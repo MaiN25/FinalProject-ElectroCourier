@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using DigitalRuby.RainMaker;
 using System;
 
 public class GameSetting : MonoBehaviour
 {
     public static GameSetting instance = null;
     public GameObject settingPanel;
+    public static float volumeValue;
     [SerializeField] private Slider volumeSlider = null;
     [SerializeField] private TMP_Text volumeTextUI = null;
     [SerializeField] public GameObject mute;
@@ -29,14 +31,19 @@ public class GameSetting : MonoBehaviour
     TMP_Dropdown dropDownMenu;
     Resolution[] resolutions;
 
+    //Caption Toggle
+    public Toggle captionToggle;
 
     private void Awake()
     {
         sc = GameObject.FindObjectOfType<SoundControl>();
         textTrigger = GameObject.FindObjectOfType<TempTrigger>();
-        audioSource = sc.ReturnAudioSource();
-        // Set the PlayerPrefs to be the current volume of the audio source.
-        PlayerPrefs.SetFloat("VolumeValue", audioSource.volume);
+        audioSource = sc.singletonAudio;
+        PlayerPrefs.SetInt("CaptionToggle", SoundControl.captionEnabled);
+        sc.captionBox = GameObject.Find("CaptionBox");
+        sc.captionText = sc.captionBox.GetComponentInChildren<TextMeshProUGUI>();
+        ToggleCaptions();
+        sc.CaptionToText();
         Start();
     }
 
@@ -142,11 +149,12 @@ public class GameSetting : MonoBehaviour
 #endif
     void LoadAudioValues()
     {
-        float volumeValue = PlayerPrefs.GetFloat("VolumeValue");
+        volumeValue = PlayerPrefs.GetFloat("VolumeValue");
         volumeSlider.value = volumeValue;
         
         // Set the volume to the slider value
-        audioSource.volume = volumeValue;
+        audioSource.volume = volumeValue * 0.8f;
+        LoopingAudioSource.TargetVolume = volumeValue * 1.2f;
         if (volumeValue == 0)
         {
             mute.SetActive(true);
@@ -183,5 +191,21 @@ public class GameSetting : MonoBehaviour
     public void ClosePanel()
     {
         settingPanel.SetActive(false);
+    }
+
+    public void ToggleCaptions()
+    {
+        if(captionToggle.isOn == true || (PlayerPrefs.GetInt("CaptionToggle") == 1))
+        {
+            SoundControl.captionEnabled = 1;
+            sc.captionBox.SetActive(true);
+            //sc.StartCoroutine("ReduceCaptionList", 5f);
+        }
+        else if (captionToggle.isOn == false || (PlayerPrefs.GetInt("CaptionToggle") == 0))
+        {
+            SoundControl.captionEnabled = 0;
+            sc.captionBox.SetActive(false);
+            //sc.StopCoroutine("ReduceCaptionList");
+        }
     }
 }

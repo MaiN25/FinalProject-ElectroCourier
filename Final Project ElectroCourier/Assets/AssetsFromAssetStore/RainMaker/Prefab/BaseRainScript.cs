@@ -169,7 +169,7 @@ namespace DigitalRuby.RainMaker
                             audioSourceRainCurrent.Stop();
                         }
                         audioSourceRainCurrent = newSource;
-                        audioSourceRainCurrent.Play(1.0f);
+                        audioSourceRainCurrent.Play(GameSetting.volumeValue);
                     }
                     if (RainFallParticleSystem != null)
                     {
@@ -317,7 +317,7 @@ namespace DigitalRuby.RainMaker
     public class LoopingAudioSource
     {
         public AudioSource AudioSource { get; private set; }
-        public float TargetVolume { get; private set; }
+        public static float TargetVolume { get; set; }
 
         public LoopingAudioSource(MonoBehaviour script, AudioClip clip, AudioMixerGroup mixer)
         {
@@ -333,7 +333,8 @@ namespace DigitalRuby.RainMaker
             AudioSource.playOnAwake = false;
             AudioSource.volume = 0.0f;
             AudioSource.Stop();
-            TargetVolume = 1.0f;
+            TargetVolume = GameSetting.volumeValue;
+            Debug.Log("Target Volume" + TargetVolume);
         }
 
         public void Play(float targetVolume)
@@ -344,11 +345,13 @@ namespace DigitalRuby.RainMaker
                 AudioSource.Play();
             }
             TargetVolume = targetVolume;
+            Debug.Log(TargetVolume + " = " + targetVolume);
         }
 
         public void Stop()
         {
-            TargetVolume = 0.0f;
+            // This was interfering with the volume set stuff, so i deleted it - Mia
+            //TargetVolume = 0.0f;
         }
 
         public void Update()

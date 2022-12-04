@@ -19,7 +19,7 @@ public class SaveLoadData : MonoBehaviour
     string TestLevel = "Level";
 
     // When the game is started, game music is activated through the SoundControl script
-    private SoundControl sc;
+    public SoundControl sc;
 
     // The currently selected saveslot, allows for saving and loading to the same file
     int saveSlot = 1;

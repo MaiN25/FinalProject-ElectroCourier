@@ -50,6 +50,8 @@ public class Game_Manager : MonoBehaviour
 
     // Access to the SoundControl script in order to make sure two audio clips don't play at the same time
     private SoundControl sc;
+    // Access to the GameSetting script for volume control;
+    private GameSetting gs;
     // Access to the SaveLoadData script for respawning at checkpoints after death
     private SaveLoadData sld;
 
@@ -80,6 +82,8 @@ public class Game_Manager : MonoBehaviour
         }
         sld = GameObject.FindObjectOfType<SaveLoadData>();
         sc = GameObject.FindObjectOfType<SoundControl>();
+        gs = GameObject.FindObjectOfType<GameSetting>();
+        Debug.Log(gs.gameObject.name);
     }
 
 
@@ -110,7 +114,8 @@ public class Game_Manager : MonoBehaviour
     {
         PlayerPrefs.SetFloat("score", score);
         sc.SilenceBackSFX();
-        Instantiate(victoryEffect, player.transform);
+        GameObject spawnedEffect = Instantiate(victoryEffect, player.transform);
+        spawnedEffect.GetComponent<AudioSource>().volume = GameSetting.volumeValue;
         if (uiManager != null)
         {
             Time.timeScale = 0;
@@ -137,7 +142,8 @@ public class Game_Manager : MonoBehaviour
         if (gameOverEffect != null)
         {
             sc.SilenceBackSFX();
-            Instantiate(gameOverEffect, transform.position, transform.rotation, null);
+            GameObject spawnedEffect = Instantiate(gameOverEffect, transform.position, transform.rotation, null);
+            spawnedEffect.GetComponent<AudioSource>().volume = GameSetting.volumeValue;
         }
         if (uiManager != null)
         {

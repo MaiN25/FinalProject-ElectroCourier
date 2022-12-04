@@ -32066,7 +32066,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1328301208294627175, guid: f663a883da56d344ca9181d924470af2, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3728366815473560014, guid: f663a883da56d344ca9181d924470af2, type: 3}
       propertyPath: m_LocalScale.x
@@ -32203,6 +32203,11 @@ PrefabInstance:
     - target: {fileID: 6443045391723223447, guid: f663a883da56d344ca9181d924470af2, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6766504518307910154, guid: f663a883da56d344ca9181d924470af2, type: 3}
+      propertyPath: m_text
+      value: I have to pick up at least 75 packages across my collection route today.
+        It looks like rain, so I better hurry!
       objectReference: {fileID: 0}
     - target: {fileID: 7703801068529965736, guid: f663a883da56d344ca9181d924470af2, type: 3}
       propertyPath: m_AnchorMax.y

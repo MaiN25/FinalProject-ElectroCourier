@@ -8,7 +8,6 @@ public class TempTrigger : MonoBehaviour
     public static TempTrigger instance = null;
 
     public GameObject textBoxPrefab;
-    public GameObject textPrefab;
 
     private void Awake()
     {
@@ -26,7 +25,6 @@ public class TempTrigger : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             textBoxPrefab.SetActive(true);
-           // textPrefab.SetActive(true);
         }
     }
 
@@ -35,7 +33,6 @@ public class TempTrigger : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             textBoxPrefab.SetActive(false);
-           // textPrefab.SetActive(false);
         }
     }
 }

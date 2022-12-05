@@ -32,14 +32,6 @@ public class SoundControl : MonoBehaviour
         singletonAudio = this.gameObject.GetComponent<AudioSource>();
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.LeftControl))
-        {
-            Debug.Log(captionList[0] + ", " + captionList[1] + ", " + captionList[2] + ", " + captionList[3]);
-        }
-    }
-
     // Game background music
     public void SilenceBackSFX()
     {
@@ -47,6 +39,7 @@ public class SoundControl : MonoBehaviour
     }
     public void PlayBackSFX()
     {
+        Debug.Log("Audio Play");
         singletonAudio.Play();
     }
 
@@ -54,7 +47,7 @@ public class SoundControl : MonoBehaviour
     // Game element sound effects
     public void PickupSFX()
     {
-        singletonAudio.PlayOneShot(pickupSFX, 1f);
+        singletonAudio.PlayOneShot(pickupSFX, sfxVolume - 1f);
         AddToCaptionList("Got Package");
     }
     public void HealSFX()
@@ -69,7 +62,7 @@ public class SoundControl : MonoBehaviour
     }
     public void EnemyDeathSFX()
     {
-        singletonAudio.PlayOneShot(enemyDeathSFX, sfxVolume);
+        singletonAudio.PlayOneShot(enemyDeathSFX, sfxVolume + 1f);
         AddToCaptionList("Enemy Death");
     }
     public void CheckpointSFX()
@@ -86,12 +79,10 @@ public class SoundControl : MonoBehaviour
     // When a new sound input is created, replace the last available slot or replace the last one and move the list upward
     void AddToCaptionList(string toAdd)
     {
-        Debug.Log("Adding " + toAdd);
         for (int i = 0; i < 4; i++)
         {
             if (captionList[i].Equals(""))
             {
-                Debug.Log("A");
                 captionList[i] = toAdd;
                 CaptionToText();
                 return;
@@ -99,7 +90,6 @@ public class SoundControl : MonoBehaviour
         }
         if (!captionList[0].Equals(""))
         {
-            Debug.Log("B");
             MoveList(toAdd);
         }
     }

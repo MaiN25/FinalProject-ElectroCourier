@@ -75,10 +75,10 @@ public class SaveLoadData : MonoBehaviour
         tempSaves = new float[] { -999, -999, -999 };
         LoadSave();
         SceneManager.LoadScene(playerSave.room);
+        sc.PlayBackSFX();
         UpdateUsedObjects(GameObject.FindObjectOfType<PlayerComponentFinder>());
         SetPlayerFromSave(true);
         pcf.gm.ChangeHealthBar();
-        sc.PlayBackSFX();
     }
 
     // When the game is saved via checkpoints, the code ensures it knows the player objects and saves various player data to the save file

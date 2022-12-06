@@ -13,7 +13,8 @@ public class FlyingEnemy : MonoBehaviour
     private float headY;
     public bool canChase = false;
     public bool causedDamage = false;
-    public Transform startingPosition;
+    public Transform[] targets;
+    public int currentTarget;
     private Game_Manager gameManager;
     private SoundControl sc;
 
@@ -23,6 +24,7 @@ public class FlyingEnemy : MonoBehaviour
         headY = transform.position.y + head.offset.y;
         gameManager = GameObject.Find("GameManager").GetComponent<Game_Manager>();
         sc = GameObject.FindObjectOfType<SoundControl>();
+        currentTarget = 0;
     }
 
     // Update is called once per frame
@@ -45,21 +47,25 @@ public class FlyingEnemy : MonoBehaviour
         }
         else
         {
-            ReturnToStartingPosition();
+            GoToTarget();
         }
 
         
         Flip();
     }
   
-    private void ReturnToStartingPosition()
+    private void GoToTarget()
     {
         
-        transform.position = Vector2.MoveTowards(transform.position, startingPosition.position, speed * Time.deltaTime);
-        if(transform.position.Equals(startingPosition.position) & causedDamage == true)
+        transform.position = Vector2.MoveTowards(transform.position, targets[currentTarget].position, speed * Time.deltaTime);
+        if(isOnTarget(targets[currentTarget]))
         {
-            causedDamage = false;
-            canChase = true;
+            if(causedDamage == true)
+            {
+                causedDamage = false;
+                canChase = true;
+            }
+            SwitchCurrentTarget();
         } 
            
     }
@@ -104,4 +110,28 @@ public class FlyingEnemy : MonoBehaviour
         }
     }
     
+    bool isOnTarget(Transform target)
+    {
+        if(Vector2.Distance(transform.position, target.position) <= .1)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    void SwitchCurrentTarget()
+    {
+        if(currentTarget + 1 >= targets.Length)
+        {
+            currentTarget = 0;
+        }
+        else
+        {
+            currentTarget++;
+        }
+    }
+
 }

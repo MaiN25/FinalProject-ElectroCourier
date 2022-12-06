@@ -110,6 +110,7 @@ public class Game_Manager : MonoBehaviour
 
 
     // Ends the level, meant to be called when the level is complete (End of level reached)
+    // and the player successfully completed the conditions of winning 
     public void LevelCleared()
     {
         PlayerPrefs.SetFloat("score", score);
@@ -134,8 +135,9 @@ public class Game_Manager : MonoBehaviour
     [HideInInspector]
     public bool gameIsOver = false;
 
-    
-    // Displays game over screen
+
+    // Displays game over screen when the end of level wan't reached or 
+    // when the player didn't completed the conditions of winning
     public void GameOver()
     {
         gameIsOver = true;
@@ -184,9 +186,6 @@ public class Game_Manager : MonoBehaviour
 
         PlayerPrefs.SetFloat("score", 0);
         ScoreDisplay.score = 0;
-
-        //PlayerPrefs.SetInt("highscore", 0);
-        //ScoreDisplay.highscore = 0;
 
     }
 

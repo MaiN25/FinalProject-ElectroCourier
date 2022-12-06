@@ -17,7 +17,6 @@ public class SaveLoadData : MonoBehaviour
 
     public static float[] tempSaves;
     string DefaultLevel = "FinLevel1";
-    string TestLevel = "Level";
 
     // When the game is started, game music is activated through the SoundControl script
     public SoundControl sc;
@@ -55,7 +54,6 @@ public class SaveLoadData : MonoBehaviour
             playerPosition = new float[] { -13.03f, -3.9f, 0 },
             health = 1,
             score = 0,
-            textSize = new Vector3(1,1,1)
 
         };
         tempSaves = new float[] { -999, -999, -999 };
@@ -88,7 +86,6 @@ public class SaveLoadData : MonoBehaviour
         {
             UpdateUsedObjects(GameObject.FindObjectOfType<PlayerComponentFinder>());
         }
-      //  Vector3 text = GameSetting.instance.scaleChange;
         Vector3 playerPos = player.transform.position;
         playerSave = new PlayerSave
         {
@@ -97,7 +94,6 @@ public class SaveLoadData : MonoBehaviour
             playerPosition = new float[] { playerPos.x, playerPos.y, playerPos.z },
             health = Game_Manager.instance.currentHealth,
             score = ScoreDisplay.score,
-           // textSize  = GameObject.FindObjectOfType<TempTrigger>().textBoxPrefab.transform.localScale
            
 
         };
@@ -158,8 +154,6 @@ public class SaveLoadData : MonoBehaviour
         public float[] playerPosition;
         public float health;
         public float score;
-        public Vector3 textSize;
-
     }
 
     // Temporary values are used to keep data between levels instead of saving directly to the save file

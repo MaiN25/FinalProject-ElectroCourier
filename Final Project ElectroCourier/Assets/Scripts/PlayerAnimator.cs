@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
 // This class handles interactions with the animator component of the player
 // It reads the player's state from the controller and animates accordingly
 
@@ -66,8 +65,7 @@ public class PlayerAnimator : MonoBehaviour
         {
             animator.SetBool("isFalling", false);
         }
-
-        //Might delete later
+        // For end game purposes
         if (player.state == PlayerMovement.PlayerState.Dead)
         {
             animator.SetBool("isDead", true);

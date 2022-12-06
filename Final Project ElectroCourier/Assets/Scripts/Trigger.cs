@@ -26,7 +26,6 @@ public class Trigger : MonoBehaviour
     public bool endGame;
     public ItemCollection pickups;
 
-    // private GameObject[] packages;
     private int totalpackages;
     private int collectedPackages;
 

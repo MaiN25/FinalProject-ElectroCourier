@@ -24,7 +24,6 @@ public class GameSetting : MonoBehaviour
     private TempTrigger textTrigger;
     [SerializeField] private Slider TextSlider = null;
     private GameObject textbox;
-    //public Vector3 scaleChange = new Vector3(1, 1, 1);
 
 
     //Screen Resolution
@@ -79,7 +78,6 @@ public class GameSetting : MonoBehaviour
     public void LoadValues()
     {
         LoadTextBoxes();
-        LoadDropDown();
         LoadAudioValues();
 
     }
@@ -100,37 +98,9 @@ public class GameSetting : MonoBehaviour
         PlayerPrefs.SetFloat("Textsize", size);
         Vector3 scaleChange = new Vector3(size + 0.5f, size + 0.5f, size + 0.5f);
         textTrigger.SetTextBoxSize(scaleChange);
-        //textbox.transform.localScale = scaleChange;
-        //SaveLoadData.instance.SaveGame();
     }
 
-#if UNITY_WEBGL
 
-    void LoadDropDown()
-    {
-        //Get the UI dropdown component
-        dropDownMenu = dropDownObject.GetComponent<TMP_Dropdown>();
-
-        //get all options available within this dropdown menu
-        List<TMP_Dropdown.OptionData> menuOptions = dropDownMenu.options;
-
-    }
-
-    public void ChangeDropDownSelection(int menuIndex)
-    {
-
-        //get all options available within this dropdown menu
-        List<TMP_Dropdown.OptionData> menuOptions = dropDownMenu.options;
-
-        //get the string value of the selected index
-        string value = menuOptions[menuIndex].text;
-
-        int index = value.IndexOf(' ');
-        string ScreenWidth = value.Substring(0, index);
-        string ScreenHeight = value.Substring(index + 2);
-        Screen.SetResolution(int.Parse(ScreenWidth), int.Parse(ScreenHeight), Screen.fullScreen);
-    }
-#endif
     void LoadAudioValues()
     {
         volumeValue = PlayerPrefs.GetFloat("VolumeValue");

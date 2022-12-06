@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// Handle the text dialogue   
 public class TempTrigger : MonoBehaviour
 {
     // The global instance for other scripts to reference
@@ -18,7 +19,6 @@ public class TempTrigger : MonoBehaviour
     public void SetTextBoxSize(Vector3 size)
     {
         textBoxPrefab.transform.localScale = size;
-        SaveLoadData.instance.playerSave.textSize = size;
     }
     public void OnTriggerEnter2D(Collider2D collision)
     {

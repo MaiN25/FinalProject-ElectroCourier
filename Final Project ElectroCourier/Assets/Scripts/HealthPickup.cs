@@ -14,6 +14,8 @@ public class HealthPickup : MonoBehaviour
         gameManager = GameObject.Find("GameManager").GetComponent<Game_Manager>();
         sc = GameObject.FindObjectOfType<SoundControl>();
     }
+
+    //increase the player health
     public void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player") && gameManager.currentHealth < 1)

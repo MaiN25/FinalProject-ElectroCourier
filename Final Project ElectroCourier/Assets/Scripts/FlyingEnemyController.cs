@@ -10,7 +10,7 @@ public class FlyingEnemyController : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-                //Later will be hidden at the start of the game, and will be activated here
+                // Changing the state of the enemy from patrolling to chasing
                 enemy.canChase = true;
         }
     }
@@ -19,8 +19,8 @@ public class FlyingEnemyController : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-                //Late will return to be hidden
-                enemy.canChase = false;
+            // Changing the state of the enemy from chasing to patrolling
+            enemy.canChase = false;
             
         }
     }

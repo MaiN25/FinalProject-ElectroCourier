@@ -116,6 +116,7 @@ public class PlayerMovement : MonoBehaviour
     }
     void FixedUpdate()
     {
+        //Check if the player is grounded 
         if (legs.IsTouchingLayers(groundLayer))
         {
             grounded = true;

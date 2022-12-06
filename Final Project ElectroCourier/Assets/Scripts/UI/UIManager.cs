@@ -110,8 +110,6 @@ public class UIManager : MonoBehaviour
 
 
     // If the game is paused, unpauses the game.
-    // If the game is not paused, pauses the game.
-
     public void TogglePause()
     {
         if (allowPause)

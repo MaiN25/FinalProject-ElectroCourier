@@ -5,7 +5,6 @@ using UnityEngine.InputSystem;
 
 
 // Class which handles reading Input for other scripts to reference
-
 public class InputManager : MonoBehaviour
 {
     // A global instance for scripts to reference
@@ -17,7 +16,8 @@ public class InputManager : MonoBehaviour
     private void Awake()
     {
         ResetValuesToDefault();
-        // Set up the instance of this
+
+        // Set up the instance
         if (instance == null)
         {
             instance = this;
@@ -53,7 +53,6 @@ public class InputManager : MonoBehaviour
 
 
     //Reads and stores the movement input
-    // <param name="callbackContext">The context of the movement input</param>
     public void GetMovementInput(InputAction.CallbackContext callbackContext)
     {
         Vector2 movementVector = callbackContext.ReadValue<Vector2>();
@@ -69,7 +68,6 @@ public class InputManager : MonoBehaviour
 
 
     /// Reads and stores the jump input
-    /// <param name="callbackContext">The context of the jump input</param>
     public void GetJumpInput(InputAction.CallbackContext callbackContext)
     {
         jumpStarted = !callbackContext.canceled;
@@ -82,7 +80,6 @@ public class InputManager : MonoBehaviour
 
 
     // Coroutine that resets the jump started variable after one frame
-
     private IEnumerator ResetJumpStart()
     {
         yield return new WaitForEndOfFrame();
@@ -106,8 +103,7 @@ public class InputManager : MonoBehaviour
     public float verticalLookAxis;
 
     
-    /// Collects movementInput
-
+    // Collects movement Input
     public void GetMouseLookInput(InputAction.CallbackContext callbackContext)
     {
         Vector2 mouseLookVector = callbackContext.ReadValue<Vector2>();

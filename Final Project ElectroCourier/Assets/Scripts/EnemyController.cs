@@ -27,15 +27,10 @@ public class EnemyController : MonoBehaviour
 
     void Update()
     {
-        
         rb.velocity = new Vector2(moveSpeed, rb.velocity.y);
     }
     
-    void FixedUpdate()
-    {
-        
-    }
-    
+
     private void Flip()
     {
         transform.localScale = new Vector2(transform.localScale.x * -1, transform.localScale.y);
@@ -53,12 +48,15 @@ public class EnemyController : MonoBehaviour
             collidingWithPlayer = true;
             if(other.gameObject.transform.position.y >= headY)
             {
+                // Apply damage on the enemy
+                // and increasing the player score
                 gameObject.SetActive(false);
                 ScoreDisplay.score += 500;
                 sc.EnemyDeathSFX();
             }
             else
             {
+                // Apply damage on the player
                 gameManager.currentHealth -= 0.2f;
                 gameManager.ChangeHealthBar();
                 sc.PlayerHurtSFX();

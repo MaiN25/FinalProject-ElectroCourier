@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+// reconnect the New game and continue game buttons after going back to the main menu 
 public class ButtonReconnection : MonoBehaviour
 {
     SaveLoadData sld;

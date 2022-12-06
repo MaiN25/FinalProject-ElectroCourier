@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5403518899835598226}
   - component: {fileID: 5403518899835598225}
   - component: {fileID: 5403518899835598224}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: DialogueTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}

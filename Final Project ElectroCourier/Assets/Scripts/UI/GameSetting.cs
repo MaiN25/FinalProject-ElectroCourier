@@ -43,7 +43,16 @@ public class GameSetting : MonoBehaviour
         PlayerPrefs.SetInt("CaptionToggle", SoundControl.captionEnabled);
         sc.captionBox = GameObject.Find("CaptionBox");
         sc.captionText = sc.captionBox.GetComponentInChildren<TextMeshProUGUI>();
-        ToggleCaptions();
+        if (PlayerPrefs.GetInt("CaptionToggle") == 1)
+        {
+            sc.captionBox.SetActive(true);
+            captionToggle.isOn = true;
+        }
+        else if (PlayerPrefs.GetInt("CaptionToggle") == 0)
+        {
+            sc.captionBox.SetActive(false);
+            captionToggle.isOn = false;
+        }
         sc.CaptionToText();
         TextSlider.value = PlayerPrefs.GetFloat("Textsize");
         Start();
@@ -170,17 +179,16 @@ public class GameSetting : MonoBehaviour
 
     public void ToggleCaptions()
     {
-        if(captionToggle.isOn == true || (PlayerPrefs.GetInt("CaptionToggle") == 1))
+        if(captionToggle.isOn == true)
         {
             SoundControl.captionEnabled = 1;
             sc.captionBox.SetActive(true);
-            //sc.StartCoroutine("ReduceCaptionList", 5f);
         }
-        else if (captionToggle.isOn == false || (PlayerPrefs.GetInt("CaptionToggle") == 0))
+        else if (captionToggle.isOn == false)
         {
             SoundControl.captionEnabled = 0;
             sc.captionBox.SetActive(false);
-            //sc.StopCoroutine("ReduceCaptionList");
         }
+        PlayerPrefs.SetInt("CaptionToggle", SoundControl.captionEnabled);
     }
 }

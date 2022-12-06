@@ -547,11 +547,90 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e58d5a6cf74be564497675b18a6df0f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  singletonAudio: {fileID: 0}
   pickupSFX: {fileID: 8300000, guid: 46411b27292b2d3429618d0fbe0d8716, type: 3}
   healSFX: {fileID: 8300000, guid: 56c861f361d9a40fbaea80ba2098f9d0, type: 3}
   playerHurtSFX: {fileID: 8300000, guid: 0f6da038eb9fc42e589fe1f71ca824ae, type: 3}
   enemyDeathSFX: {fileID: 8300000, guid: 7aa83da633e054c9e95da044f8f96733, type: 3}
   checkpointSFX: {fileID: 8300000, guid: ce4265975e0204efbbd440272644e19d, type: 3}
+  captionBox: {fileID: 0}
+  captionText: {fileID: 0}
+--- !u!1 &1821513246
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1821513247}
+  - component: {fileID: 1821513249}
+  - component: {fileID: 1821513248}
+  m_Layer: 5
+  m_Name: Backdrop (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1821513247
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1821513246}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.9785236, y: 1.9785236, z: 1.9785236}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8064979311168497010}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -700.48883, y: 272.26004}
+  m_SizeDelta: {x: 654.54, y: 107.59}
+  m_Pivot: {x: 0, y: 0}
+--- !u!114 &1821513248
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1821513246}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.89056605, g: 1, b: 1, a: 0.80784315}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: -1291642364, guid: cccb9231c00944b42a55aba1fecd38a1, type: 3}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1821513249
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1821513246}
+  m_CullTransparentMesh: 0
 --- !u!1 &2087304850
 GameObject:
   m_ObjectHideFlags: 0
@@ -637,6 +716,10 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2261303980821538722, guid: f3073e2ec075ac6489021b9797782d9d, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3374189239686123961, guid: f3073e2ec075ac6489021b9797782d9d, type: 3}
       propertyPath: m_Name
       value: MainMenu UI Canvas
@@ -738,5 +821,13 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1382279237}
     m_RemovedComponents: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 3374189239085282923, guid: f3073e2ec075ac6489021b9797782d9d, type: 3}
+      insertIndex: 0
+      addedObject: {fileID: 1821513247}
   m_SourcePrefab: {fileID: 100100000, guid: f3073e2ec075ac6489021b9797782d9d, type: 3}
+--- !u!224 &8064979311168497010 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 3374189239085282923, guid: f3073e2ec075ac6489021b9797782d9d, type: 3}
+  m_PrefabInstance: {fileID: 8064979311168497009}
+  m_PrefabAsset: {fileID: 0}
